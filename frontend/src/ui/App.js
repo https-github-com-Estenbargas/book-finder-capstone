@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router'
 import { Home } from './Home'
 import { FourOhFour } from './FourOhFour'
 import React from 'react'
+import "./App.css"
+import {MainSideBar} from "./shared/components/SideBar";
 
 export const App = () => (
     <>
