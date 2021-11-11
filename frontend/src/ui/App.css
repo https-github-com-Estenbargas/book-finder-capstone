@@ -1,0 +1,19 @@
+#sidebar-wrapper {
+    width: 150px;
+    background-color: gray;
+}
+#sidebar-wrapper * {
+    font-size: large;
+    text-decoration: none;
+}
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        width: 105px;
+    }
+    #mainNav p {
+        font-size: medium;
+    }
+    #input {
+        font-size: medium;
+    }
+}
