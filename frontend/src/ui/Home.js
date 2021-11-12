@@ -1,25 +1,26 @@
 import React from "react"
-import {MainSideBar} from "./shared/components/SideBar";
+import {BackToHomeSideBar, HomeSideBar, LibrarySideBar} from "./shared/components/SideBars";
 import {Col, Container, Image, Row} from "react-bootstrap";
-
+import {HomeOffCanvasSideBar , LibraryOffCanvasSideBar, BackToHomeOffCanvasSideBar} from "./shared/components/OffCanvasSideBar"
 
 export const Home = () => {
     return (
         <>
-
             <Container fluid>
                 <Row>
-                    <Col>
+                    <HomeSideBar />
+                    <Col xs={"4"} className={"ps-1"}>
+                        <LibrarySideBar />
+                        <LibraryOffCanvasSideBar />
+                    </Col>
+                    <Col xs={"4"} className={"ps-1"}>
+                        <BackToHomeSideBar />
+                        <BackToHomeOffCanvasSideBar />
+                    </Col>
+                    <Col xs={"4"} className={"ps-1"}>
+                        <HomeOffCanvasSideBar />
+                    </Col>
 
-                    </Col>
-                </Row>
-            </Container>
-            <Container fluid>
-                <Row>
-                    <MainSideBar />
-                    <Col id={"page-content-wrapper"}>
-                        <p>Other Content</p>
-                    </Col>
                 </Row>
             </Container>
 
