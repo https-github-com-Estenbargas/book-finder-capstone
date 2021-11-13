@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router'
 import { Home } from './Home'
 import { FourOhFour } from './FourOhFour'
 import React from 'react'
+import {LoginPage} from "./Login";
 
 export const App = () => (
     <>
@@ -10,6 +11,7 @@ export const App = () => (
             <Switch>
                 <Route exact path='/' component={Home} />
                 <Route component={FourOhFour} />
+                <Route exact path='/login' component={LoginPage} />
             </Switch>
         </BrowserRouter>
 
