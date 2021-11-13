@@ -10,9 +10,11 @@ export function HomeSideBar() {
                 <SearchBar/>
                 <Nav varient={"pill"} id={"mainNav"}
                      className={"d-flex flex-column align-items-center text-dark m-2 sidebar min-vh-100"}>
-                    <Link exact to={"/library"}>
-                        <p className={"text-white text-center"}>Library</p>
-                    </Link>
+                    <Nav.Item className={"pt-2"}>
+                        <Link exact to={"/library"}>
+                            <p className={"text-white text-center"}>Library</p>
+                        </Link>
+                    </Nav.Item>
                     <Nav.Item className={"pt-2"}>
                         <a href={"#top-rated-filter"}>
                             <p className={"text-white text-center"}>Top Rated</p>
@@ -22,6 +24,11 @@ export function HomeSideBar() {
                         <a href={"#genre-filter"}>
                             <p className={"text-white text-center"}>Genre</p>
                         </a>
+                    </Nav.Item>
+                    <Nav.Item className={"pt-2"}>
+                        <Link exact to={"/user-list"}>
+                            <p className={"text-white text-center"}>Find My Friend</p>
+                        </Link>
                     </Nav.Item>
                 </Nav>
             </Col>

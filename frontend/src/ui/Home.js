@@ -8,7 +8,7 @@ export const Home = () => {
         <>
             <Container fluid>
                 <Row>
-                    <LibrarySideBar />
+                    <HomeSideBar />
                     <Col xs={"10"}>
                         <p>a;sldkj</p>
                         <HomeOffCanvasSideBar />

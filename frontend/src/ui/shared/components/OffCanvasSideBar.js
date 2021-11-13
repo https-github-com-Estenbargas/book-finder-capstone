@@ -23,10 +23,12 @@ export function HomeOffCanvasSideBar({name, ...props}) {
                 <Offcanvas.Body>
                     <SearchBar />
                     <Nav className={"d-flex flex-column py-3"} id={"offcanvas-nav"}>
+                        <Nav.Item className={"pt-2"}>
                         <Link exact to={"/library"}>
                             <p className={"text-white text-center"}>Library</p>
                         </Link>
-                        <Nav.Item className={""}>
+                        </Nav.Item>
+                        <Nav.Item className={"pt-2"}>
                             <a href={"#top-rated-filter"}>
                                 <p className={"text-center"}>Top-Rated</p>
                             </a>
@@ -35,6 +37,11 @@ export function HomeOffCanvasSideBar({name, ...props}) {
                             <a href={"#genre-filter"}>
                                 <p className={"text-center"}>Genre</p>
                             </a>
+                        </Nav.Item>
+                        <Nav.Item className={"pt-2"}>
+                            <Link exact to={"/user-list"}>
+                                <p className={"text-white text-center"}>Find My Friend</p>
+                            </Link>
                         </Nav.Item>
                     </Nav>
                 </Offcanvas.Body>
