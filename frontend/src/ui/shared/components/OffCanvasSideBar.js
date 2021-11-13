@@ -23,6 +23,9 @@ export function HomeOffCanvasSideBar({name, ...props}) {
                 <Offcanvas.Body>
                     <SearchBar />
                     <Nav className={"d-flex flex-column py-3"} id={"offcanvas-nav"}>
+                        <Link exact to={"/library"}>
+                            <p className={"text-white text-center"}>Library</p>
+                        </Link>
                         <Nav.Item className={""}>
                             <a href={"#top-rated-filter"}>
                                 <p className={"text-center"}>Top-Rated</p>

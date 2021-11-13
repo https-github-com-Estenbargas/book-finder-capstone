@@ -6,10 +6,13 @@ import {SearchBar} from "./SearchBar";
 export function HomeSideBar() {
     return (
         <>
-            <Col xs={"1"} id={"sidebar-wrapper"}>
+            <Col xs={"2"} id={"sidebar-wrapper"}>
                 <SearchBar/>
                 <Nav varient={"pill"} id={"mainNav"}
                      className={"d-flex flex-column align-items-center text-dark m-2 sidebar min-vh-100"}>
+                    <Link exact to={"/library"}>
+                        <p className={"text-white text-center"}>Library</p>
+                    </Link>
                     <Nav.Item className={"pt-2"}>
                         <a href={"#top-rated-filter"}>
                             <p className={"text-white text-center"}>Top Rated</p>

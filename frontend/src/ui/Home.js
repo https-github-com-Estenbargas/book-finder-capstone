@@ -8,19 +8,11 @@ export const Home = () => {
         <>
             <Container fluid>
                 <Row>
-                    <HomeSideBar />
-                    <Col xs={"4"} className={"ps-1"}>
-                        <LibrarySideBar />
-                        <LibraryOffCanvasSideBar />
-                    </Col>
-                    <Col xs={"4"} className={"ps-1"}>
-                        <BackToHomeSideBar />
-                        <BackToHomeOffCanvasSideBar />
-                    </Col>
-                    <Col xs={"4"} className={"ps-1"}>
+                    <LibrarySideBar />
+                    <Col xs={"10"}>
+                        <p>a;sldkj</p>
                         <HomeOffCanvasSideBar />
                     </Col>
-
                 </Row>
             </Container>
 
