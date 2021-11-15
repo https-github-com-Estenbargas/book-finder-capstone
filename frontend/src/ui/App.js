@@ -4,6 +4,8 @@ import { Home } from './Home/Home'
 import { FourOhFour } from './FourOhFour'
 import React from 'react'
 import "./App.css"
+import {MainNav} from "./shared/components/NavBar";
+
 
 export const App = () => (
     <>
