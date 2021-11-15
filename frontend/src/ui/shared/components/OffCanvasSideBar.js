@@ -1,7 +1,14 @@
 import React, {useState} from "react";
-import {Button, Container, Nav, Offcanvas} from "react-bootstrap";
+import {Button, Col, Container, Nav, Offcanvas} from "react-bootstrap";
 import {SearchBar} from "./SearchBar";
 import {Link} from "react-router-dom";
+
+
+
+
+
+
+
 
 export function HomeOffCanvasSideBar({name, ...props}) {
     const [show, setShow] = useState(false)
@@ -12,13 +19,12 @@ export function HomeOffCanvasSideBar({name, ...props}) {
     return (
 
         <>
-            <Container>
-                <Button id={"sidebar-toggler"} variant={"light"} onClick={handleShow} className={"text-black"}>Open Sidebar</Button>
+            <Container id={"toggler-container"}>
+                <Button id={"sidebar-toggler"} variant={"light"} onClick={handleShow} className={"text-black d-flex flex-column"}>SideBar</Button>
             </Container>
 
             <Offcanvas show={show} onHide={handleClose} className={"min-vw-100 bg-secondary"} id={"offcanvas-sidebar"}>
                 <Offcanvas.Header closeButton>
-
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <SearchBar />
@@ -59,15 +65,17 @@ export function LibraryOffCanvasSideBar({name, ...props}) {
     return (
 
         <>
-            <Button id={"sidebar-toggler"} variant={"light"} onClick={handleShow} className={"text-black"}>Open Sidebar</Button>
+            <Container id={"toggler-container"}>
+                <Button id={"sidebar-toggler"} variant={"light"} onClick={handleShow} className={"text-black d-flex flex-column"}>SideBar</Button>
+            </Container>
+
             <Offcanvas show={show} onHide={handleClose} className={"min-vw-100 bg-secondary"} id={"offcanvas-sidebar"}>
                 <Offcanvas.Header closeButton>
-
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <SearchBar />
                     <Nav className={"d-flex flex-column py-3"} id={"offcanvas-nav"}>
-                        <Nav.Item className={""}>
+                        <Nav.Item>
                             <Link exact to={"/"}>
                                 <p className={"text-white text-center"}>Back To Home</p>
                             </Link>
@@ -102,7 +110,10 @@ export function BackToHomeOffCanvasSideBar({name, ...props}) {
     return (
 
         <>
-            <Button id={"sidebar-toggler"} variant={"light"} onClick={handleShow} className={"text-black"}>Open Sidebar</Button>
+            <Container id={"toggler-container"}>
+                <Button id={"sidebar-toggler"} variant={"light"} onClick={handleShow} className={"text-black d-flex flex-column"}>SideBar</Button>
+            </Container>
+
             <Offcanvas show={show} onHide={handleClose} className={"min-vw-100 bg-secondary"} id={"offcanvas-sidebar"}>
                 <Offcanvas.Header closeButton>
 

@@ -11,7 +11,10 @@
     font-size: x-large;
     color: white;
 }
-
+#toggler-container {
+    position: absolute;
+    right: 5%;
+}
 
 
 
@@ -37,6 +40,9 @@
     }
 
     #offcanvas-sidebar {
+        display: none;
+    }
+    #toggler-container {
         display: none;
     }
 }

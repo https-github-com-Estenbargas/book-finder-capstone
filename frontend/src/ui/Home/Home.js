@@ -1,7 +1,7 @@
 import React from "react"
-import {BackToHomeSideBar, HomeSideBar, LibrarySideBar} from "./shared/components/SideBars";
+import {BackToHomeSideBar, HomeSideBar, LibrarySideBar} from "../shared/components/SideBars";
 import {Col, Container, Image, Row} from "react-bootstrap";
-import {HomeOffCanvasSideBar , LibraryOffCanvasSideBar, BackToHomeOffCanvasSideBar} from "./shared/components/OffCanvasSideBar"
+import {HomeOffCanvasSideBar , LibraryOffCanvasSideBar, BackToHomeOffCanvasSideBar} from "../shared/components/OffCanvasSideBar"
 
 export const Home = () => {
     return (
@@ -9,9 +9,11 @@ export const Home = () => {
             <Container fluid>
                 <Row>
                     <HomeSideBar />
-                    <Col xs={"10"}>
-                        <p>a;sldkj</p>
+
+                    <Col xs={"9"}>
                         <HomeOffCanvasSideBar />
+                        <p>a;sldkj</p>
+
                     </Col>
                 </Row>
             </Container>
