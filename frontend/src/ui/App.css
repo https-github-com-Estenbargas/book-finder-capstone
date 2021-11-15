@@ -29,7 +29,7 @@
         font-size: medium;
     }
 }
-@media (max-width: 425px) {
+@media (max-width: 426px) {
     #sidebar-wrapper {
         display: none;
     }
@@ -43,6 +43,6 @@
         display: none;
     }
     #toggler-container {
-        display: none;
+
     }
 }
