@@ -9,7 +9,7 @@ export function MainNav() {
             <header>
                 <Navbar className="bg-secondary d-flex justify-content-end">
                     <Navbar.Brand className={"pe-2"}>
-                        <Link exact to="/user-profile">
+                        <Link to="/user-profile">
                             <Image className={"rounded-circle"} src={placeholder} width={"50"} height={"50"} alt={"Profile Image"}/>
                         </Link>
                     </Navbar.Brand>

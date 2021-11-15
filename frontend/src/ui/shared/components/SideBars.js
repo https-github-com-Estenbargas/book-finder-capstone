@@ -71,7 +71,7 @@ export function LibrarySideBar() {
 export function BackToHomeSideBar() {
     return (
         <>
-            <Col xs={"1"} id={"sidebar-wrapper"}>
+            <Col xs={"2"} id={"sidebar-wrapper"}>
                 <Nav varient={"pill"} id={"mainNav"} className={"d-flex flex-column align-items-center text-dark sidebar min-vh-100"}>
                     <Nav.Item className={"pt-3"}>
                         <Link exact to={"/"}>

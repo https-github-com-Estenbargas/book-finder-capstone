@@ -13,10 +13,16 @@
 }
 #toggler-container {
     position: absolute;
-    right: 5%;
+    bottom: 88%;
 }
 
+#content-wrapper {
 
+}
+
+body {
+    background-color: #6e747e !important;
+}
 
 @media (max-width: 768px) {
     #sidebar-wrapper {
@@ -29,7 +35,7 @@
         font-size: medium;
     }
 }
-@media (max-width: 425px) {
+@media (max-width: 426px) {
     #sidebar-wrapper {
         display: none;
     }
@@ -45,4 +51,8 @@
     #toggler-container {
         display: none;
     }
+}
+
+@media {
+
 }
