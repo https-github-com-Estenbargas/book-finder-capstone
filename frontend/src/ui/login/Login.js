@@ -1,5 +1,5 @@
 import React from "react"
-import {LoginForm} from "./shared/components/LoginForm";
+import {LoginForm} from "./LoginForm";
 
 export const LoginPage = () => {
     return (
