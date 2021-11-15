@@ -1,0 +1,48 @@
+#sidebar-wrapper {
+    width: 150px;
+    background-color: gray;
+}
+#sidebar-wrapper * {
+    font-size: large;
+    text-decoration: none;
+}
+#offcanvas-nav * {
+    text-decoration: none;
+    font-size: x-large;
+    color: white;
+}
+#toggler-container {
+    position: absolute;
+    right: 5%;
+}
+
+
+
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        width: 110px;
+    }
+    #mainNav p {
+        font-size: medium;
+    }
+    #input {
+        font-size: medium;
+    }
+}
+@media (max-width: 425px) {
+    #sidebar-wrapper {
+        display: none;
+    }
+}
+@media (min-width: 426px) {
+    #sidebar-toggler {
+        display: none
+    }
+
+    #offcanvas-sidebar {
+        display: none;
+    }
+    #toggler-container {
+        display: none;
+    }
+}

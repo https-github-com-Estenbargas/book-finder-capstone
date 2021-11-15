@@ -1,9 +1,12 @@
 import { BrowserRouter } from 'react-router-dom'
 import { Route, Switch } from 'react-router'
-import { Home } from './Home'
+import { Home } from './Home/Home'
 import { FourOhFour } from './FourOhFour'
 import React from 'react'
 import {Library} from "./library-page/Library";
+import "./App.css"
+import {MainNav} from "./shared/components/NavBar";
+
 
 export const App = () => (
     <>
