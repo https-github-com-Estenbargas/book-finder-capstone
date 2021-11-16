@@ -83,3 +83,18 @@ export function BackToHomeSideBar() {
         </>
     )
 }
+export function DetailsSideBar() {
+    return (
+        <>
+            <Col xs id={"sidebar-wrapper"}>
+                <Nav varient={"pill"} id={"mainNav"} className={"d-flex flex-column align-items-center text-dark sidebar min-vh-100"}>
+                    <Nav.Item className={"pt-3"}>
+                        <Link exact to={"/"}>
+                            <p className={"text-white text-center"}>Back To Home</p>
+                        </Link>
+                    </Nav.Item>
+                </Nav>
+            </Col>
+        </>
+    )
+}
