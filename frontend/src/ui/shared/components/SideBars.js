@@ -6,7 +6,7 @@ import {SearchBar} from "./SearchBar";
 export function HomeSideBar() {
     return (
         <>
-            <Col xs={"2"} id={"sidebar-wrapper"}>
+            <Col xs id={"sidebar-wrapper"}>
                 <SearchBar/>
                 <Nav varient={"pill"} id={"mainNav"}
                      className={"d-flex flex-column align-items-center text-dark m-2 sidebar min-vh-100"}>
@@ -26,7 +26,7 @@ export function HomeSideBar() {
                         </a>
                     </Nav.Item>
                     <Nav.Item className={"pt-2"}>
-                        <Link exact to={"/user-list"}>
+                        <Link to={"/user-list"}>
                             <p className={"text-white text-center"}>Find My Friend</p>
                         </Link>
                     </Nav.Item>
@@ -40,7 +40,7 @@ export function HomeSideBar() {
 export function LibrarySideBar() {
     return (
         <>
-            <Col xs={"1"} id={"sidebar-wrapper"}>
+            <Col xs id={"sidebar-wrapper"}>
                 <Nav varient={"pill"} id={"mainNav"}
                      className={"d-flex flex-column align-items-center text-dark sidebar min-vh-100"}>
                     <Nav.Item className={"pt-3"}>
@@ -71,7 +71,7 @@ export function LibrarySideBar() {
 export function BackToHomeSideBar() {
     return (
         <>
-            <Col xs={"1"} id={"sidebar-wrapper"}>
+            <Col xs id={"sidebar-wrapper"}>
                 <Nav varient={"pill"} id={"mainNav"} className={"d-flex flex-column align-items-center text-dark sidebar min-vh-100"}>
                     <Nav.Item className={"pt-3"}>
                         <Link exact to={"/"}>
