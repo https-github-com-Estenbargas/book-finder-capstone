@@ -6,7 +6,7 @@ import {SearchBar} from "./SearchBar";
 export function HomeSideBar() {
     return (
         <>
-            <Col xs={"2"} id={"sidebar-wrapper"}>
+            <Col xs id={"sidebar-wrapper"}>
                 <SearchBar/>
                 <Nav varient={"pill"} id={"mainNav"}
                      className={"d-flex flex-column align-items-center text-dark m-2 sidebar min-vh-100"}>
