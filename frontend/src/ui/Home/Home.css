@@ -2,13 +2,17 @@
     position: absolute !important;
     bottom: 93% !important;
 }
-@media (max-width: 645px) {
+.card-image {
+    width: 150px;
+    height: 100px;
+}
+@media (max-width: 769px) {
 
     #sidebar-wrapper {
        display: none;
     }
 }
-@media (max-width: 645px) {
+@media (max-width: 767px) {
     #sidebar-toggler {
         display:unset  !important;
     }

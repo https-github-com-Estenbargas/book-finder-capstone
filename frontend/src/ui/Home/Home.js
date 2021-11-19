@@ -14,19 +14,20 @@ export const Home = () => {
            </Container>
             <Container fluid>
                 <Row>
-
                     <HomeSideBar />
                     <HomeOffCanvasSideBar />
-                    <Col xs={"10"}>
-                        <Row>
-                            <Col xs={"6"}>
-                                a
+                    <Col xs={"12"} md={"10"} className={"mx-0"}>
+                        <Row className={"bg-secondary py-3 border-top border-dark d-flex flex-row"}>
+                            <Col xs={"4"} md={"2"} className={"m-0 p-3 d-flex flex-column justify-content-center align-items-center"}>
+                               <Image className={"card-image justify-content-center"} fluid src={"https://dummyimage.com/150x150/fff/aaa"}/>
+                               <div className={"text-center mt-2 py-2"} id={"card-text-container"}>
+                                   <p>Rating:</p>
+                                   <p>Add To Favorites</p>
+                                   <p>Add To Collection</p>
+                               </div>
                             </Col>
-                            <Col xs={"6"}>
+                            <Col xs>
                                 a
-                            </Col>
-                            <Col xs={"12"}>
-                               a
                             </Col>
                         </Row>
 
