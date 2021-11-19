@@ -1,0 +1,22 @@
+#toggler-container {
+    position: absolute !important;
+    bottom: 93% !important;
+}
+@media (max-width: 645px) {
+
+    #sidebar-wrapper {
+       display: none;
+    }
+}
+@media (max-width: 645px) {
+    #sidebar-toggler {
+        display:unset  !important;
+    }
+
+    #offcanvas-sidebar {
+        display:unset  !important;
+    }
+    #toggler-container {
+        display:unset  !important;
+    }
+}

@@ -1,9 +1,8 @@
 #sidebar-wrapper {
-    width: 150px;
     background-color: gray;
 }
 #sidebar-wrapper * {
-    font-size: large;
+    font-size: x-large;
     text-decoration: none;
 }
 #offcanvas-nav * {
@@ -13,7 +12,7 @@
 }
 #toggler-container {
     position: absolute;
-    right: 5%;
+    bottom: 94%;
 }
 #banner {
     background-image: url("./shared/imgs/tim-wildsmith-o2fc-C-Uotw-unsplash.jpg");

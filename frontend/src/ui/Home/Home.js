@@ -4,6 +4,7 @@ import {Col, Container, Image, Row} from "react-bootstrap";
 import {HomeOffCanvasSideBar , LibraryOffCanvasSideBar, BackToHomeOffCanvasSideBar} from "../shared/components/OffCanvasSideBar"
 import {MainNav} from "../shared/components/NavBar";
 import Placeholder from "../shared/imgs/book shelph draft2.png"
+import "./Home.css"
 export const Home = () => {
     return (
         <>
@@ -15,10 +16,20 @@ export const Home = () => {
                 <Row>
 
                     <HomeSideBar />
-
+                    <HomeOffCanvasSideBar />
                     <Col xs={"10"}>
-                        <HomeOffCanvasSideBar />
-                        <p>a;sldkj</p>
+                        <Row>
+                            <Col xs={"6"}>
+                                a
+                            </Col>
+                            <Col xs={"6"}>
+                                a
+                            </Col>
+                            <Col xs={"12"}>
+                               a
+                            </Col>
+                        </Row>
+
 
                     </Col>
                 </Row>
