@@ -25,7 +25,6 @@ export const SignupForm = () => {
                     </div>
                 </form>
             </Container>
-
         </>
     )
 }
