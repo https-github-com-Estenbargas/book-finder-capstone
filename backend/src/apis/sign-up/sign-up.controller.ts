@@ -27,14 +27,14 @@ export async function signupUserController(request: Request, response: Response)
 
         const user: User = {
             userId: null,
-            userActivation,
+            userActivationToken,
             userEmail,
             userHash,
-            userImage: null,
+            userImage,
             userName
         };
 
-        await insertUser(User)
+        await insertUser(user)
 
         const emailComposer: MailComposer = new MailComposer(mailgunMessage)
 
