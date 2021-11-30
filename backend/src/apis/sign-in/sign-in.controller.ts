@@ -7,7 +7,7 @@ import {generateJwt, validatePassword} from "../../utils/auth.utils";
 import {User} from "../../utils/interfaces/User";
 import {selectUserByUserEmail} from "../../utils/user/selectUserByUserEmail";
 
-export async function signInController(request: Request, response: Response, nextFunction: NextFunction) : Promise<Response| undefined> {
+export async function signInController(request: Request, response: Response, nextFunction: NextFunction) {
     try {
         const {userPassword} = request.body
 
