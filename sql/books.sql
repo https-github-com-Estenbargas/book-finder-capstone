@@ -17,7 +17,7 @@ CREATE TABLE book (
 );
 CREATE TABLE user (
                        userId BINARY(16) NOT NULL,
-                       userActivationToken CHAR(32) NOT NULL,
+                       userActivation CHAR(32) NOT NULL,
                        userEmail VARCHAR(128) NOT NULL,
                        userHash CHAR(97) NOT NULL,
                        userImage VARCHAR(128),
