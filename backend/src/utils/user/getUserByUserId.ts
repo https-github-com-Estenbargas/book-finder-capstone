@@ -7,8 +7,8 @@ export async function selectUserByUserId(userId: string) : Promise<User|null> {
         const mysqlConnection = await connect()
         const mysqlQuery = "SELECT BIN_TO_UUID(userId) as userId, userActivationToken, userEmail, userHash, userImage, userName FROM user WHERE userId = UUID_TO_BIN(:userId)"
         const result = await mysqlConnection.execute(mysqlQuery, {userId}) as RowDataPacket
-        const user = result[0] as User
-        return user
+        const users = result[0] as User[]
+        return users.length === 1 ? {...users[0]} : null
 
     }catch (error) {
         console.error(error)

@@ -1,5 +1,5 @@
 export interface User {
-    userid : string|null,
+    userId : string|null,
     userActivationToken : string|null,
     userEmail : string,
     userHash : string,
