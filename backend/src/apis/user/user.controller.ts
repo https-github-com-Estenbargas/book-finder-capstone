@@ -4,6 +4,7 @@ import {selectUserByUserId} from "../../utils/user/getUserByUserId";
 import {selectPartialUserByUserId} from "../../utils/user/getPartialUserByUserId";
 import {Status} from "../../utils/interfaces/Status";
 import {updateUser} from "../../utils/user/updateUser";
+import {selectUserByUserEmail} from "../../utils/user/selectUserByUserEmail";
 
 export async function putUserController(request: Request, response: Response) : Promise<Response>{
     try {
@@ -44,6 +45,18 @@ export async function  getPartialUserByUserId(request: Request, response: Respon
     try {
         const {userId} = request.params;
         const mysqlResult = await selectPartialUserByUserId(userId);
+        const data = mysqlResult ?? null
+        const status: Status = {status: 200, data, message: null}
+        return response.json(status)
+
+    }catch (error: any) {
+        return response.json({status: 400, data:null, message: error.message})
+    }
+}
+export async function getUserByUserEmail(request: Request, response: Response) : Promise<Response> {
+    try {
+        const {userEmail} = request.params;
+        const mysqlResult = await selectUserByUserEmail(userEmail);
         const data = mysqlResult ?? null
         const status: Status = {status: 200, data, message: null}
         return response.json(status)
