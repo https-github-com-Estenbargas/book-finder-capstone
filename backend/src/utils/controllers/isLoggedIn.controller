@@ -1,0 +1,17 @@
+import {NextFunction, Request, Response} from "express";
+import {verify, VerifyErrors} from "jsonwebtoken";
+import {Status} from "../interfaces/Status";
+import {User} from "../interfaces/User";
+import {IncomingHttpHeaders} from "http";
+
+export function isLoggedIn(request: Request, response: Response, nextFunction: NextFunction) : Response | void {
+
+    let status: Status = {status: 400, message: "Please Login", data: null};
+    /*const sessionProfile = (request: Request): Profile | undefined => request.session?.profile ?? undefined;
+    console.log(request.sessionID)*/
+
+    const sessionUser = {request: Request}: User | undefined => request.session?.user ?? undefined;
+    console.log(request)
+
+    const  signature =
+}
