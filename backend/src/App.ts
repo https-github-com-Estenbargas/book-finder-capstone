@@ -1,10 +1,9 @@
 import express, { Application } from 'express'
-import SignupRoute from "./apis/sign-up/signup.route"
 import morgan from 'morgan'
 // Routes
 import { indexRoute } from './apis/index.routes'
 import {SignInRouter} from "./apis/sign-in/sign-in.route"
-
+import {signUpRoute} from "./apis/sign-up/signup.route"
 // The following class creates the app and instantiates the server
 export class App {
     app: Application;
@@ -33,7 +32,7 @@ export class App {
     private routes () :void {
         // TODO add "/apis"
         this.app.use('/apis', indexRoute)
-        this.app.use("/apis/sign-up", SignupRoute)
+        this.app.use("/apis/sign-up", signUpRoute)
         this.app.use("/apis/sign-in", SignInRouter)
     }
 
