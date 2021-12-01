@@ -16,7 +16,7 @@ export async function signupUserController(request: Request, response: Response)
         const userHash = await setHash(userPassword);
         const userActivationToken = setActivationToken();
         const userImage = "http://www.fillmurray.com/150/150"
-        const basePath = `${request.protocol}://${request.get("host")}${request.originalUrl}/activation/${userActivationToken}`
+        const basePath = `${request.protocol}://${request.get("host")}${request.originalUrl}activation/${userActivationToken}`
         console.log(userActivationToken)
 
         const message = `<h2>Welcome To Book Shelph!</h2> <p>In order to continue, you must confirm your account.</p> <p><a href="${basePath}">${basePath}</a></p>`
