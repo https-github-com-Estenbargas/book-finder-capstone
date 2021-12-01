@@ -6,18 +6,17 @@ import {activationController} from "./activation.controller";
 import {param} from "express-validator";
 
 const {checkSchema} = require("express-validator")
-const router: Router = Router();
+export const signUpRoute: Router = Router();
 
-router.route("/")
+signUpRoute.route("/")
     .post(
         asyncValidatorController(checkSchema(signupValidator)),
         signupUserController
     );
 
-router.route("/activation/:activation")
+signUpRoute.route("/activation/:activation")
     .get(
         asyncValidatorController([param("activation", "Invalid Activation Link").isHexadecimal().notEmpty()]),
         activationController
     )
 
-export default router;

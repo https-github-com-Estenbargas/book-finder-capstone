@@ -8,7 +8,7 @@ export interface User {
 }
 
 export interface PartialUser {
-    userId: string|null
-    userImage: string
+    userId: string|null,
+    userImage: string,
     userName: string
 }
