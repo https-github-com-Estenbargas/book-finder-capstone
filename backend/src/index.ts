@@ -1,11 +1,13 @@
 import { App } from './App'
 import {User} from "./utils/interfaces/User";
+import {Visited} from "./utils/interfaces/Visited";
 
 declare module 'express-session' {
     export interface SessionData {
         user: User|undefined;
         signature: string|undefined;
-        jwt: string|undefined
+        jwt: string|undefined;
+        visited: Visited|undefined
     }
 }
 
