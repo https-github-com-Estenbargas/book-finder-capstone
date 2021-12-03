@@ -14,11 +14,25 @@ function DataDownloader(): Promise<any> {
 
 
     async function downloadBooks() {
-        const key = <string>process.env.GOOGLE_API_KEY
+        const googleApikey = <string>process.env.GOOGLE_API_KEY
         try {
-            const {data} = await axios.get("https://www.googleapis.com/books/v1/volumes?q=a&key=" + key)
+            const {data} = await axios.get("https://www.googleapis.com/books/v1/volumes?q=a&key=" + googleApikey)
 
-            for(let result of data) {
+            for(let volumeInfo of data) {
+                //  volumeInfo.authors[], volumeInfo.description, volumeInfo.categories[], volumeInfo.imageLinks.thumbnail, volumeInfo.industryIdentifiers[], volumeInfo.publisher, volumeInfo.title
+                const {authors, description, categories, imagesLinks, industyIdentifers, publisher, title}  = volumeInfo
+                const book: Book = {
+                    bookId: null,
+                    bookAuthor: authors,
+                    bookDescription: description,
+                    bookGenre: categories,
+                    bookImage: imagesLinks,
+                    bookIsbn: industyIdentifers,
+                    bookPublisher: publisher,
+                    bookTitle: title
+
+          /*  for(let result of data) {
+                //  volumeInfo.authors[], volumeInfo.description, volumeInfo.categories[], volumeInfo.imageLinks.thumbnail, volumeInfo.industryIdentifiers[], volumeInfo.publisher, volumeInfo.title
                 const {bookAuthor, bookDescription, bookGenre, bookImage, bookIsbn, bookPublisher, bookTitle}  = result
                 const book: Book = {
                     bookId: null,
@@ -28,7 +42,7 @@ function DataDownloader(): Promise<any> {
                     bookImage,
                     bookIsbn,
                     bookPublisher,
-                    bookTitle
+                    bookTitle*/
                 }
                 console.log(await insertBook(book))
             }
