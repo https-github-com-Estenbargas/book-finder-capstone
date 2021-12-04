@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS book;
 CREATE TABLE book (
                          bookId BINARY(16) NOT NULL,
                          bookAuthor VARCHAR(256),
-                         bookDescription VARCHAR(1024),
+                         bookDescription VARCHAR(2048),
                          bookGenre VARCHAR(32),
                          bookImage VARCHAR(128),
                          bookIsbn VARCHAR(128),
