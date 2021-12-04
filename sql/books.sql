@@ -6,13 +6,13 @@ DROP TABLE IF EXISTS book;
 
 CREATE TABLE book (
                          bookId BINARY(16) NOT NULL,
-                         bookAuthor VARCHAR(30) NOT NULL ,
-                         bookDescription VARCHAR(1024) NOT NULL ,
-                         bookGenre VARCHAR(32) NOT NULL ,
-                         bookImage VARCHAR(128) NOT NULL,
-                         bookIsbn VARCHAR(128) NOT NULL,
-                         bookPublisher VARCHAR(128) NOT NULL,
-                         bookTitle varchar(256) NOT NULL ,
+                         bookAuthor VARCHAR(256),
+                         bookDescription VARCHAR(1024),
+                         bookGenre VARCHAR(32),
+                         bookImage VARCHAR(128),
+                         bookIsbn VARCHAR(128),
+                         bookPublisher VARCHAR(128),
+                         bookTitle varchar(256),
                          PRIMARY KEY(bookId)
 );
 CREATE TABLE user (
