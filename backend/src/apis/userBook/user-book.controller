@@ -5,6 +5,11 @@ import {UserBook} from "../../utils/interfaces/UserBook";
 import {selectUserBookByPrimaryKey} from "../../utils/user-book/selectUserBookByPrimaryKey";
 import {insertUserBook} from "../../utils/user-book/insertUserBook";
 import {deleteUserBook} from "../../utils/user-book/deleteUserBook"
+import {selectUserBookByUserId} from "../../utils/user-book/selectUserBookByUserId";
+import {selectBooksByUserId} from "../../utils/book/selectBookByUserId";
+import {selectUserBookByUserBookUserId} from "../../utils/book/selectUserBookByUserBookUserId";
+import {selectUserBookByUserBookBookId} from "../../utils/user-book/selectUserBookByUserBookUserId";
+import {body} from "express-validator";
 
 
 export async function toggleUserBookController(request: Request, response: Response) : Promise<Response<Status>> {
@@ -40,4 +45,66 @@ export async function toggleUserBookController(request: Request, response: Respo
         return response.json({status: 500, message: error.message , data: null})
    }
 
+}
+
+export async function getAllUserBookByUserId(request: Request, response: Response) : Promise<Response<Status>> {
+    try {
+        const user: User = request.session.user as User;
+        const data = selectUserBookByUserId(<string> user.userId);
+        const status: Status = {
+            status: 200,
+            message: null,
+            data: data,
+        };
+        return response.json(status);
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+export async function getBooksByUserId(request: Request, response: Response) : Promise<Response<Status>> {
+    try {
+        const user: User = request.session.user as User;
+        const data = selectBooksByUserId(<string> user.userId);
+        const status: Status = {
+            status: 200,
+            message: null,
+            data: data,
+        };
+        return response.json(status);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function getUserBookByUserBookUserId(request: Request, response: Response) : Promise<Response<Status>> {
+    try {
+        const user: User = request.session.user as User;
+        const userBookUserId = <string> user.userId
+        const data = selectUserBookByUserBookUserId(userBookUserId);
+        const status: Status = {
+            status: 200,
+            message: null,
+            data: data,
+        };
+        return response.json(status);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function getUserBookByUserBookBookId(request: Request, response: Response) : Promise<Response<Status>> {
+    try {
+        const {userBookBookId} = request.body
+        const data = selectUserBookByUserBookBookId(userBookBookId);
+        const status: Status = {
+            status: 200,
+            message: null,
+            data: data,
+        };
+        return response.json(status);
+    } catch (error) {
+        console.log(error);
+    }
 }
