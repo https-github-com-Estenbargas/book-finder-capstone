@@ -1,5 +1,5 @@
 import {createPool, Pool} from 'mysql2/promise';
-
+/*require('dotenv').config();*/
 let globalPool: Pool | undefined = undefined
 
 export async function connect () : Promise<Pool> {
