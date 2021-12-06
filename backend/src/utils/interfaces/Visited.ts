@@ -1,5 +1,5 @@
 export interface Visited {
-    visitedId : string,
+    visitedId : string|null,
     visitedBookId : string,
     visitedUserId : string
 }
