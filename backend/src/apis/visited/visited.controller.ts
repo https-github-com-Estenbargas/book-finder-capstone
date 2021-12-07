@@ -4,6 +4,8 @@ import {Visited} from "../../utils/interfaces/Visited";
 import {Status} from "../../utils/interfaces/Status";
 import {insertVisited} from "../../utils/visited/insertVisited";
 import {selectVisitedByUserId} from "../../utils/visited/selectVisitedByUserId";
+import {selectVisitedByBookId} from "../../utils/visited/selectVisitedByBookId";
+import {selectVisitedByVisitedId} from "../../utils/visited/selectVisitedByVisitedId";
 
 export async function postVisitedController(request: Request, response: Response): Promise<Response> {
     try {
@@ -28,7 +30,7 @@ export async function postVisitedController(request: Request, response: Response
     }
 }
 
-export async function getVisitedByVisitedUserIdController (request: Request, response: Response): Promise<Response> {
+export async function getVisitedByUserIdController (request: Request, response: Response): Promise<Response> {
     try {
         const user: User = request.session.user as User;
         const data = await selectVisitedByUserId(<string> user.userId);
@@ -39,10 +41,50 @@ export async function getVisitedByVisitedUserIdController (request: Request, res
         const status: Status = {
             status: 200,
             message: null,
-            data: data,
+            data: data
         };
         return response.json(status);
     } catch (error) {
+        console.log(error);
+        return response.json({
+            status: 500,
+            message: "",
+            data: null
+        })
+    }
+}
+
+export async function getVisitedByBookIdController (request: Request, response: Response): Promise<Response> {
+    try {
+        const {bookId} = request.params;
+        const data = await selectVisitedByBookId(bookId);
+        const status: Status = {
+            status: 200,
+            message: null,
+            data: data
+        }
+        return response.json(status)
+    } catch(error) {
+        console.log(error);
+        return response.json({
+            status: 500,
+            message: "",
+            data: null
+        })
+    }
+}
+
+export async function getVisitedByVisitedIdController (request: Request, response: Response): Promise<Response> {
+    try {
+        const {visitedId} = request.params;
+        const data = await selectVisitedByVisitedId(visitedId);
+        const  status: Status = {
+            status: 200,
+            message: null,
+            data: data
+        }
+        return response.json(status)
+    }catch(error) {
         console.log(error);
         return response.json({
             status: 500,
