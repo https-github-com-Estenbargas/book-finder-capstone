@@ -5,7 +5,6 @@ import {asyncValidatorController} from "../../utils/controllers/asyncValidator.c
 import {
     getUserByUserId,
     putUserController,
-    getUserByUserEmail,
     getAllUsers,
     getPartialUserByUserId
 } from "./user.controller";
@@ -23,11 +22,11 @@ UserRoute.route("/:userId")
     )
     .put(isLoggedIn, asyncValidatorController(checkSchema(userVaildator)), putUserController)
 
-UserRoute.route("/email/:userEmail")
-    .get(isLoggedIn,
-        asyncValidatorController([check("userEmail", "Please Provide A Valid UserEmail")])
-        , getUserByUserEmail
-    )
+// UserRoute.route("/email/:userEmail")
+//     .get(isLoggedIn,
+//         asyncValidatorController([check("userEmail", "Please Provide A Valid UserEmail")])
+//         , getUserByUserEmail
+//     )
 // UserRoute.route("/all-users")
 //     .get(isLoggedIn, getAllUsers)
 

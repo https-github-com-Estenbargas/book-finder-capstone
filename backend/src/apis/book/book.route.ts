@@ -7,19 +7,19 @@ import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 export const BookRoute: Router = Router();
 
 BookRoute.route("/")
-    .get(getAllBooks)
+    .get(isLoggedIn, getAllBooks)
 
 BookRoute.route("/book/:bookId")
-    .get(
+    .get(isLoggedIn,
         asyncValidatorController([check("bookId", "Please Provide A Valid bookId").isUUID()])
         , getBookByBookId
     )
 
 BookRoute.route("/book-detail/:bookId")
-    .get(
+    .get(isLoggedIn,
         asyncValidatorController([check("bookId", "Please Provide A Valid bookId").isUUID()])
         , getBookByBookId
     )
 
-BookRoute.route("/books")
-    .get(getRandomBooks)
+BookRoute.route("/random-books")
+    .get(isLoggedIn, getRandomBooks)
