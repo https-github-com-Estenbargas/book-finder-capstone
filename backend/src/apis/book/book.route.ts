@@ -1,4 +1,4 @@
-import {getBookByBookId, getAllBooks, getRandomBooks} from "./book.controller";
+import {getBookByBookId, getAllBooks, getRandomBooks, getBookByUserBookBookId} from "./book.controller";
 import {Router} from "express";
 import {asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
 import {check} from "express-validator";
@@ -23,3 +23,6 @@ BookRoute.route("/book-detail/:bookId")
 
 BookRoute.route("/random-books")
     .get(isLoggedIn, getRandomBooks)
+
+BookRoute.route("/user-book/:userBookBookId")
+    .get(isLoggedIn, asyncValidatorController([check("userBookBookId", "Please Provide A Valid userBookBookId")]), getBookByUserBookBookId)

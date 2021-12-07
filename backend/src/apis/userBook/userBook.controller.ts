@@ -97,7 +97,7 @@ export async function getUserBookByUserBookUserId(request: Request, response: Re
 
 export async function getUserBookByUserBookBookId(request: Request, response: Response) : Promise<Response<Status>> {
     try {
-        const {userBookBookId} = request.body
+        const {userBookBookId} = request.params
         const data = await selectUserBookByUserBookBookId(userBookBookId);
         const status: Status = {
             status: 200,
