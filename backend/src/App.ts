@@ -6,6 +6,7 @@ const MemoryStore = require('memorystore')(session);
 import { indexRoute } from './apis/index.routes'
 import {SignInRouter} from "./apis/sign-in/sign-in.route"
 import {signUpRoute} from "./apis/sign-up/signup.route"
+import {SignOutRoute} from "./apis/sign-out/sign-out.route"
 import {UserRoute} from "./apis/user/user.route";
 import {VisitedRoute} from "./apis/visited/visited.route";
 import {BookRoute} from "./apis/book/book.route";
@@ -50,6 +51,7 @@ export class App {
         this.app.use('/apis', indexRoute)
         this.app.use("/apis/sign-up", signUpRoute)
         this.app.use("/apis/sign-in", SignInRouter)
+        this.app.use("/apis/sign-out", SignOutRoute)
         this.app.use("/apis/user", UserRoute)
         this.app.use("/apis/visited", VisitedRoute)
         this.app.use("/apis/books", BookRoute)
