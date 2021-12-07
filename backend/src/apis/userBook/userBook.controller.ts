@@ -1,4 +1,4 @@
-import {Response,Request} from "express";
+
 import {User} from "../../utils/interfaces/User";
 import {Status} from "../../utils/interfaces/Status";
 import {UserBook} from "../../utils/interfaces/UserBook";
@@ -7,10 +7,9 @@ import {insertUserBook} from "../../utils/user-book/insertUserBook";
 import {deleteUserBook} from "../../utils/user-book/deleteUserBook"
 import {selectUserBookByUserId} from "../../utils/user-book/selectUserBookByUserId";
 import {selectBooksByUserId} from "../../utils/book/selectBookByUserId";
-import {selectUserBookByUserBookUserId} from "../../utils/book/selectUserBookByUserBookUserId";
-import {selectUserBookByUserBookBookId} from "../../utils/user-book/selectUserBookByUserBookUserId";
-import {body} from "express-validator";
-
+import {selectUserBookByUserBookBookId} from "../../utils/user-book/selectUserBookByUserBookBookId";
+import {selectUserBookByUserBookUserId} from "../../utils/user-book/selectUserBookByUserBookUserId";
+import {Request, Response} from "express";
 
 export async function toggleUserBookController(request: Request, response: Response) : Promise<Response<Status>> {
    try {
@@ -27,12 +26,13 @@ export async function toggleUserBookController(request: Request, response: Respo
 
        const select = await selectUserBookByPrimaryKey(userBook)
        let result = null
+       // @ts-ignore
        if (select[0]) {
             result = await deleteUserBook(userBook)
        }else{
            result = await insertUserBook(userBook)
        }
-        //return result in response.json
+
        const status: Status = {
            status: 200,
            message: "UserBook successfully updated",
@@ -41,7 +41,7 @@ export async function toggleUserBookController(request: Request, response: Respo
 
        return response.json(result)
 
-   }catch (error) {
+   }catch (error: any) {
         return response.json({status: 500, message: error.message , data: null})
    }
 
@@ -57,8 +57,8 @@ export async function getAllUserBookByUserId(request: Request, response: Respons
             data: data,
         };
         return response.json(status);
-    } catch (error) {
-        console.log(error);
+    } catch (error: any) {
+        return response.json({status: 500, message: error.message , data: null})
     }
 
 }
@@ -73,8 +73,8 @@ export async function getBooksByUserId(request: Request, response: Response) : P
             data: data,
         };
         return response.json(status);
-    } catch (error) {
-        console.log(error);
+    } catch (error: any) {
+        return response.json({status: 500, message: error.message , data: null})
     }
 }
 
@@ -89,8 +89,8 @@ export async function getUserBookByUserBookUserId(request: Request, response: Re
             data: data,
         };
         return response.json(status);
-    } catch (error) {
-        console.log(error);
+    } catch (error: any) {
+        return response.json({status: 500, message: error.message , data: null})
     }
 }
 
@@ -104,7 +104,7 @@ export async function getUserBookByUserBookBookId(request: Request, response: Re
             data: data,
         };
         return response.json(status);
-    } catch (error) {
-        console.log(error);
+    } catch (error: any) {
+        return response.json({status: 500, message: error.message , data: null})
     }
 }

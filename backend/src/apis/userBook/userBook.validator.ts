@@ -13,6 +13,5 @@ export const UserBookValidator : Schema = {
         isUUID: {
             errorMessage: "Please Provide A Valid userBookUserId"
         }
-
     }
 }
