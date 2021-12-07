@@ -27,10 +27,10 @@ export async function toggleUserBookController(request: Request, response: Respo
        const select = await selectUserBookByPrimaryKey(userBook)
        let result = null
        // @ts-ignore
-       if (select[0]) {
-            result = await deleteUserBook(userBook)
+       if (select === null) {
+            result = await insertUserBook(userBook)
        }else{
-           result = await insertUserBook(userBook)
+           result = await deleteUserBook(userBook)
        }
 
        const status: Status = {
@@ -50,7 +50,8 @@ export async function toggleUserBookController(request: Request, response: Respo
 export async function getAllUserBookByUserId(request: Request, response: Response) : Promise<Response<Status>> {
     try {
         const user: User = request.session.user as User;
-        const data = selectUserBookByUserId(<string> user.userId);
+        const userId = user.userId
+        const data = await selectUserBookByUserId(<string>userId);
         const status: Status = {
             status: 200,
             message: null,
@@ -66,7 +67,7 @@ export async function getAllUserBookByUserId(request: Request, response: Respons
 export async function getBooksByUserId(request: Request, response: Response) : Promise<Response<Status>> {
     try {
         const user: User = request.session.user as User;
-        const data = selectBooksByUserId(<string> user.userId);
+        const data = await selectBooksByUserId(<string> user.userId);
         const status: Status = {
             status: 200,
             message: null,
@@ -82,7 +83,7 @@ export async function getUserBookByUserBookUserId(request: Request, response: Re
     try {
         const user: User = request.session.user as User;
         const userBookUserId = <string> user.userId
-        const data = selectUserBookByUserBookUserId(userBookUserId);
+        const data = await selectUserBookByUserBookUserId(userBookUserId);
         const status: Status = {
             status: 200,
             message: null,
@@ -97,7 +98,7 @@ export async function getUserBookByUserBookUserId(request: Request, response: Re
 export async function getUserBookByUserBookBookId(request: Request, response: Response) : Promise<Response<Status>> {
     try {
         const {userBookBookId} = request.body
-        const data = selectUserBookByUserBookBookId(userBookBookId);
+        const data = await selectUserBookByUserBookBookId(userBookBookId);
         const status: Status = {
             status: 200,
             message: null,

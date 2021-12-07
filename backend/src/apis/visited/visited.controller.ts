@@ -4,6 +4,8 @@ import {Visited} from "../../utils/interfaces/Visited";
 import {Status} from "../../utils/interfaces/Status";
 import {insertVisited} from "../../utils/visited/insertVisited";
 import {selectVisitedByUserId} from "../../utils/visited/selectVisitedByUserId";
+import {selectVisitedByVisitedId} from "../../utils/visited/selectVisitedByVisitedId";
+import {selectVisitedByBookId} from "../../utils/visited/selectVisitedByBookId";
 
 export async function postVisitedController(request: Request, response: Response): Promise<Response> {
     try {
@@ -47,6 +49,45 @@ export async function getVisitedByVisitedUserIdController (request: Request, res
         return response.json({
             status: 500,
             message: "",
+            data: null
+        })
+    }
+}
+export async function getVisitedByVisitedIdController (request: Request, response: Response): Promise<Response> {
+    try {
+        const {visitedId} = request.params
+        const data = await selectVisitedByVisitedId(visitedId);
+        const status: Status = {
+            status: 200,
+            message: null,
+            data: data,
+        };
+        return response.json(status);
+    } catch (error: any) {
+        console.log(error)
+        return response.json({
+            status: 500,
+            message: error.message,
+            data: null
+        })
+    }
+}
+export async function getVisitedByBookId (request: Request, response: Response): Promise<Response> {
+    try {
+        const {bookId} = request.params
+        const data = await selectVisitedByBookId(bookId);
+        console.log(data)
+        const status: Status = {
+            status: 200,
+            message: null,
+            data: data,
+        };
+        return response.json(status);
+    } catch (error: any) {
+        console.log(error)
+        return response.json({
+            status: 500,
+            message: error.message,
             data: null
         })
     }

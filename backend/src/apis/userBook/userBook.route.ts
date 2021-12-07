@@ -9,14 +9,17 @@ import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 import {asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
 import {check, checkSchema} from "express-validator";
 import {UserBookValidator} from "./userBook.validator";
+import {UserBookPostValidator} from "./userBookPost.vaildator";
 
 export const UserBookRoute = Router();
 
 UserBookRoute.route("/")
-    .post(isLoggedIn, toggleUserBookController)
+    .post(isLoggedIn,asyncValidatorController(checkSchema(UserBookPostValidator)), toggleUserBookController)
 
-UserBookRoute.route("/:userBookUserId/:userBookBookId")
+/*
+UserBookRoute.route("/books/:userBookUserId/:userBookBookId")
     .get(isLoggedIn,asyncValidatorController(checkSchema(UserBookValidator)), getBooksByUserId)
+*/
 
 UserBookRoute.route("/books/:userId")
     .get(isLoggedIn,asyncValidatorController([check("userId", "Please provide a valid userId").isUUID()]), getAllUserBookByUserId)

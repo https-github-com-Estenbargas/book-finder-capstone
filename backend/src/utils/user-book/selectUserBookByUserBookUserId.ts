@@ -8,6 +8,7 @@ export async function selectUserBookByUserBookUserId(userBookUserId: string): Pr
         const mysqlConnection = await connect();
         const mySqlSelectQuery = 'SELECT BIN_TO_UUID(userBookUserId) as userBookBookId, BIN_TO_UUID(userBookUserId) as userBookUserId,  userBookFavorite, userBookCollection FROM userBook WHERE userBookUserId = UUID_TO_BIN(:userBookUserId)'
         const result : RowDataPacket[]= await mysqlConnection.execute(mySqlSelectQuery, {userBookUserId}) as RowDataPacket[]
+        console.log(result)
         const rows: UserBook[] = result[0] as UserBook[]
         return rows.length !== 0 ? {...rows[0]} : null;
     } catch(error) {

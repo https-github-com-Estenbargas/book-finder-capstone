@@ -7,6 +7,7 @@ export async function selectUserBookByUserId(userId: string): Promise<UserBook[]
         const mysqlConnection = await connect();
         const mySqlSelectQuery = 'SELECT BIN_TO_UUID(userBookUserId) as userBookBookId, BIN_TO_UUID(userBookUserId) as userBookUserId,  userBookFavorite, userBookCollection FROM userBook WHERE userBookUserId = UUID_TO_BIN(:userId)'
         const result : RowDataPacket[]= await mysqlConnection.execute(mySqlSelectQuery, {userId}) as RowDataPacket[]
+        // console.log(result)
         return result[0] as UserBook[]
     } catch(error) {
         throw error
