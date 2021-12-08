@@ -6,16 +6,17 @@ import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllRandomBooks, fetchBookByBookId} from "../../store/book";
 
+
 export const Details = () => {
 
-    const books = useSelector(state => state.books ? state.books : [])
-    console.log(books)
+    const book = useSelector(state => state.books ? state.books : [])
+    console.log(book)
     const dispatchBooks = useDispatch()
 
-    const initialEffect = () => {
-        dispatchBooks(fetchBookByBookId())
-    }
-    React.useEffect(initialEffect, [dispatchBooks])
+    // const initialEffect = () => {
+    //     dispatchBooks(fetchBookByBookId())
+    // }
+    // React.useEffect(initialEffect, [dispatchBooks])
 
 
     return (

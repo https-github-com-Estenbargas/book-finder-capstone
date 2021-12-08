@@ -9,6 +9,7 @@ import Placeholder from "../shared/imgs/placeholder-profileimg.png";
 import {HomeContentHolder} from "./HomeContentHolder";
 
 
+
 export const Home = () => {
     const books = useSelector(state => state.books ? state.books : [])
     console.log(books)

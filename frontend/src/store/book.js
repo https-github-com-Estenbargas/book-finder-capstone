@@ -23,7 +23,7 @@ export const fetchAllRandomBooks = () => async (dispatch) => {
     dispatch(getRandomBooks(data))
 }
 export const fetchBookByBookId = (bookId) => async (dispatch) => {
-    const {data} = await httpConfig.get(`/apis/books/book-detail/:bookId`)
+    const {data} = await httpConfig.get(`/apis/books/book-detail/${bookId}`)
     console.log(data)
     dispatch(getBookDetailsByBookId(data))
 }

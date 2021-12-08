@@ -16,7 +16,7 @@ BookRoute.route("/book/:bookId")
     )
 
 BookRoute.route("/book-detail/:bookId")
-    .get(isLoggedIn,
+    .get(
         asyncValidatorController([check("bookId", "Please Provide A Valid bookId").isUUID()])
         , getBookByBookId
     )
