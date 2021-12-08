@@ -22,7 +22,7 @@ BookRoute.route("/book-detail/:bookId")
     )
 
 BookRoute.route("/random-books")
-    .get(isLoggedIn, getRandomBooks)
+    .get(getRandomBooks)
 
 BookRoute.route("/user-book/:userBookBookId")
     .get(isLoggedIn, asyncValidatorController([check("userBookBookId", "Please Provide A Valid userBookBookId")]), getBookByUserBookBookId)

@@ -1,23 +1,23 @@
 import React from "react"
 import {BackToHomeSideBar, HomeSideBar, LibrarySideBar} from "../shared/components/SideBars";
-import {Col, Container, Image, Row} from "react-bootstrap";
+import {Card, Col, Container, Image, Row} from "react-bootstrap";
 import {HomeOffCanvasSideBar , LibraryOffCanvasSideBar, BackToHomeOffCanvasSideBar} from "../shared/components/OffCanvasSideBar"
 import {MainNav} from "../shared/components/NavBar";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllRandomBooks} from "../../store/book";
 import Placeholder from "../shared/imgs/placeholder-profileimg.png";
+import {HomeContentHolder} from "./HomeContentHolder";
 
 
 export const Home = () => {
-
     const books = useSelector(state => state.books ? state.books : [])
     console.log(books)
-    const dispatch = useDispatch()
+    const dispatchBooks = useDispatch()
 
     const initialEffect = () => {
-        dispatch(fetchAllRandomBooks())
+        dispatchBooks(fetchAllRandomBooks())
     }
-    React.useEffect(initialEffect, [dispatch])
+    React.useEffect(initialEffect, [dispatchBooks])
 
     return (
         <>
@@ -26,11 +26,8 @@ export const Home = () => {
                 <Row>
                     <HomeSideBar />
 
-                    <Col xs={"10"}>
-                        <Row className={"border-top border-dark"}>
-                            <Image className={"user-images rounded-circle p-3"} src={Placeholder} alt={"placeholder"} width={"30"} height={"30"} />
-                            <p>PlaceHolder Text</p>
-                        </Row>
+                    <Col xs={"12"} md={"10"}>
+                            {books.map(book => <HomeContentHolder key={book.bookId} book={book}/>)}
                     </Col>
                 </Row>
             </Container>
