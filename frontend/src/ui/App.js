@@ -1,6 +1,7 @@
 import { BrowserRouter } from 'react-router-dom'
 import { Route, Switch } from 'react-router'
 import { Home } from './Home/Home'
+import { Signup } from './Signup/Signup'
 import { FourOhFour } from './FourOhFour'
 import {ProfilePage} from "./user-profile/Profile";
 import {LoginPage} from "./login/Login";
@@ -24,6 +25,7 @@ export const App = (store) => (
                 <Route exact path='/user-list' component={UserList} />
                 <Route exact path='/details-page' component={Details} />
                 <Route exact path='/library' component={Library}/>
+                <Route exact path='/sign-up' component={Signup} />
                 <Route component={FourOhFour} />
             </Switch>
         </BrowserRouter>
