@@ -3,8 +3,12 @@ import {BackToHomeSideBar, HomeSideBar} from "../shared/components/SideBars";
 import {BackToHomeOffCanvasSideBar, HomeOffCanvasSideBar} from "../shared/components/OffCanvasSideBar";
 import React from "react";
 import {MainNav} from "../shared/components/NavBar";
+import {useSelector} from "react-redux";
 
 export const ProfilePage = () => {
+    const user = useSelector(state => state.users ? state.users: [])
+    console.log(user)
+
     return (
         <>
            <MainNav />

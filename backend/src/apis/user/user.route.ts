@@ -13,10 +13,10 @@ import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 
 export const UserRoute: Router = Router()
 UserRoute.route("/")
-    .get(isLoggedIn, getAllUsers)
+    .get(getAllUsers)
     .post(putUserController);
 UserRoute.route("/:userId")
-    .get(isLoggedIn,
+    .get(
         asyncValidatorController([check("userId", "Please Provide A Valid UserId").isUUID()])
         , getPartialUserByUserId
     )

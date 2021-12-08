@@ -20,7 +20,7 @@ export const App = (store) => (
         <BrowserRouter>
             <Switch>
                 <Route exact path='/' component={Home} />
-                <Route exact path='/user-profile' component={ProfilePage} />
+                <Route exact path='/user-profile/:userId' component={ProfilePage} />
                 <Route exact path='/login' component={LoginPage} />
                 <Route exact path='/user-list' component={UserList} />
                 <Route exact path='/details-page/:bookId' component={Details} />

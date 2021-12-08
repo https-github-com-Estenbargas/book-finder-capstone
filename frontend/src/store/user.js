@@ -9,14 +9,22 @@ const userSlice = createSlice({
         getAllUsers: (users, action) => {
             return action.payload
         },
+        getUserByUserId: (users, action) => {
+            return action.payload
+        }
     },
 })
 
 export const {getAllUsers} = userSlice.actions
+export const {getUserByUserId} = userSlice.actions
 
 export const fetchAllUsers = () => async (dispatch) => {
     const {data} = await httpConfig.get("/apis/user")
     dispatch(getAllUsers(data))
+}
+export const fetchUserByUserId = (userId) => async (dispatch) => {
+    const {data} = await httpConfig.get(`/apis/user/${userId}`)
+    dispatch(getUserByUserId(data))
 }
 
 export default userSlice.reducer
