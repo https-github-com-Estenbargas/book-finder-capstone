@@ -23,7 +23,7 @@ export const App = (store) => (
                 <Route exact path='/user-profile' component={ProfilePage} />
                 <Route exact path='/login' component={LoginPage} />
                 <Route exact path='/user-list' component={UserList} />
-                <Route exact path='/details-page' component={Details} />
+                <Route exact path='/details-page/:bookId' component={Details} />
                 <Route exact path='/library' component={Library}/>
                 <Route exact path='/sign-up' component={Signup} />
                 <Route component={FourOhFour} />

@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAllRandomBooks, fetchBookByBookId} from "../../store/book";
 
 export const Details = () => {
+
     const books = useSelector(state => state.books ? state.books : [])
     console.log(books)
     const dispatchBooks = useDispatch()
@@ -15,6 +16,7 @@ export const Details = () => {
         dispatchBooks(fetchBookByBookId())
     }
     React.useEffect(initialEffect, [dispatchBooks])
+
 
     return (
         <>

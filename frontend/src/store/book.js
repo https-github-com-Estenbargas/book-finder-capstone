@@ -22,8 +22,9 @@ export const fetchAllRandomBooks = () => async (dispatch) => {
     const {data} = await httpConfig.get("/apis/books/random-books")
     dispatch(getRandomBooks(data))
 }
-export const fetchBookByBookId = () => async (dispatch) => {
-    const {data} = await httpConfig.get("/apis/books/:bookId")
+export const fetchBookByBookId = (bookId) => async (dispatch) => {
+    const {data} = await httpConfig.get(`/apis/books/book-detail/:bookId`)
+    console.log(data)
     dispatch(getBookDetailsByBookId(data))
 }
 export default bookSlice.reducer
