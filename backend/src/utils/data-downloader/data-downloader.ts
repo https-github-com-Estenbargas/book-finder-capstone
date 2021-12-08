@@ -19,7 +19,7 @@ function DataDownloader(): Promise<any> {
         const googleApiKey = process.env.GOOGLE_API_KEY
 
         try {
-            const {data} = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=e&projection=full&maxResults=40&key=${googleApiKey}`)
+            const {data} = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=b&projection=full&maxResults=40&key=${googleApiKey}`)
 
              data.items.map(async (item: { volumeInfo: any; }) => {
 try {

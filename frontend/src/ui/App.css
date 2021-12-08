@@ -13,11 +13,7 @@
 }
 #toggler-container {
     position: absolute;
-    bottom: 88%;
-}
-
-#content-wrapper {
-
+    bottom: 93%;
 }
 
 body {
@@ -35,12 +31,12 @@ body {
         font-size: medium;
     }
 }
-@media (max-width: 426px) {
+@media (max-width: 550px) {
     #sidebar-wrapper {
         display: none;
     }
 }
-@media (min-width: 426px) {
+@media (min-width: 550px) {
     #sidebar-toggler {
         display: none
     }
@@ -49,7 +45,7 @@ body {
         display: none;
     }
     #toggler-container {
-        display: none;
+
     }
 }
 

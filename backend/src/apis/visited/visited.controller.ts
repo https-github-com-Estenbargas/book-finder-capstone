@@ -54,41 +54,42 @@ export async function getVisitedByUserIdController (request: Request, response: 
     }
 }
 
-export async function getVisitedByBookIdController (request: Request, response: Response): Promise<Response> {
+export async function getVisitedByVisitedIdController (request: Request, response: Response): Promise<Response> {
     try {
-        const {bookId} = request.params;
-        const data = await selectVisitedByBookId(bookId);
+        const {visitedId} = request.params
+        const data = await selectVisitedByVisitedId(visitedId);
         const status: Status = {
             status: 200,
             message: null,
-            data: data
-        }
-        return response.json(status)
-    } catch(error) {
-        console.log(error);
+            data: data,
+        };
+        return response.json(status);
+    } catch (error: any) {
+        console.log(error)
         return response.json({
             status: 500,
-            message: "",
+            message: error.message,
             data: null
         })
     }
 }
 
-export async function getVisitedByVisitedIdController (request: Request, response: Response): Promise<Response> {
+export async function getVisitedByBookId (request: Request, response: Response): Promise<Response> {
     try {
-        const {visitedId} = request.params;
-        const data = await selectVisitedByVisitedId(visitedId);
-        const  status: Status = {
+        const {bookId} = request.params
+        const data = await selectVisitedByBookId(bookId);
+        console.log(data)
+        const status: Status = {
             status: 200,
             message: null,
-            data: data
-        }
-        return response.json(status)
-    }catch(error) {
-        console.log(error);
+            data: data,
+        };
+        return response.json(status);
+    } catch (error: any) {
+        console.log(error)
         return response.json({
             status: 500,
-            message: "",
+            message: error.message,
             data: null
         })
     }

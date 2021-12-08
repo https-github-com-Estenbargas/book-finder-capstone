@@ -54,18 +54,18 @@ export async function  getPartialUserByUserId(request: Request, response: Respon
         return response.json({status: 400, data:null, message: error.message})
     }
 }
-export async function getUserByUserEmail(request: Request, response: Response) : Promise<Response> {
-    try {
-        const {userEmail} = request.params;
-        const mysqlResult = await selectUserByUserEmail(userEmail);
-        const data = mysqlResult ?? null
-        const status: Status = {status: 200, data, message: null}
-        return response.json(status)
-
-    }catch (error: any) {
-        return response.json({status: 400, data:null, message: error.message})
-    }
-}
+// export async function getUserByUserEmail(request: Request, response: Response) : Promise<Response> {
+//     try {
+//         const {userEmail} = request.params;
+//         const mysqlResult = await selectUserByUserEmail(userEmail);
+//         const data = mysqlResult ?? null
+//         const status: Status = {status: 200, data, message: null}
+//         return response.json(status)
+//
+//     }catch (error: any) {
+//         return response.json({status: 400, data:null, message: error.message})
+//     }
+// }
 export async function getAllUsers(request: Request, response: Response) : Promise<Response> {
     try {
         const data = await selectAllUsers();

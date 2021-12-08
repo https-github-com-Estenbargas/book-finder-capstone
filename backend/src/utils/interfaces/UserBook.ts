@@ -1,6 +1,6 @@
 export interface UserBook {
-    userBookBookId : string,
-    userBookUserId : string,
-    userBookCollection : string,
-    userBookFavorite : string
+    userBookBookId : string| null,
+    userBookUserId : string| null,
+    userBookCollection : string | null,
+    userBookFavorite : string| null,
 }
