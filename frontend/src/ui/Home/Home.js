@@ -12,7 +12,7 @@ export const Home = () => {
                 <Row>
                     <HomeSideBar />
 
-                    <Col xs={"9"}>
+                    <Col xs={"10"}>
                         <HomeOffCanvasSideBar />
                         <p>a;sldkj</p>
 

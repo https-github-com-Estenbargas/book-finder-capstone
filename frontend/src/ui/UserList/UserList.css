@@ -1,0 +1,10 @@
+.user-images {
+    width: 100px !important;
+    height: 100px !important;
+}
+
+@media (min-width:1200px) {
+    #mainNav * {
+        font-size: x-large !important;
+    }
+}

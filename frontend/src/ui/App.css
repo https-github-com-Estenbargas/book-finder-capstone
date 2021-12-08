@@ -13,7 +13,7 @@
 }
 #toggler-container {
     position: absolute;
-    bottom: 88%;
+    bottom: 93%;
 }
 
 #content-wrapper {
@@ -35,12 +35,12 @@ body {
         font-size: medium;
     }
 }
-@media (max-width: 426px) {
+@media (max-width: 550px) {
     #sidebar-wrapper {
         display: none;
     }
 }
-@media (min-width: 426px) {
+@media (min-width: 550px) {
     #sidebar-toggler {
         display: none
     }

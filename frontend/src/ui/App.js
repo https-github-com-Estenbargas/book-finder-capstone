@@ -8,6 +8,7 @@ import "./App.css"
 import {MainNav} from "./shared/components/NavBar";
 import {ProfilePage} from "./user-profile/Profile";
 import {LoginPage} from "./login/Login";
+import {UserList} from "./UserList/UserList";
 
 export const App = (store) => (
 
@@ -18,6 +19,7 @@ export const App = (store) => (
                 <Route exact path='/' component={Home} />
                 <Route exact path='/user-profile' component={ProfilePage} />
                 <Route exact path='/login' component={LoginPage} />
+                <Route exact path='/user-list' component={UserList} />
                 <Route component={FourOhFour} />
             </Switch>
         </BrowserRouter>
