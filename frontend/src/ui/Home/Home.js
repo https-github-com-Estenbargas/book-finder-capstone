@@ -4,7 +4,7 @@ import {Card, Col, Container, Image, Row} from "react-bootstrap";
 import {HomeOffCanvasSideBar , LibraryOffCanvasSideBar, BackToHomeOffCanvasSideBar} from "../shared/components/OffCanvasSideBar"
 import {MainNav} from "../shared/components/NavBar";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchAllRandomBooks} from "../../store/book";
+import {fetchAllBooks} from "../../store/book";
 import Placeholder from "../shared/imgs/placeholder-profileimg.png";
 import {HomeContentHolder} from "./HomeContentHolder";
 
@@ -16,7 +16,7 @@ export const Home = () => {
     const dispatchBooks = useDispatch()
 
     const initialEffect = () => {
-        dispatchBooks(fetchAllRandomBooks())
+        dispatchBooks(fetchAllBooks())
     }
     React.useEffect(initialEffect, [dispatchBooks])
 

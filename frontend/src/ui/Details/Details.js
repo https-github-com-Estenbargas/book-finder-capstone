@@ -4,49 +4,41 @@ import {BackToHomeSideBar, DetailsSideBar} from "../shared/components/SideBars";
 import {BackToHomeOffCanvasSideBar} from "../shared/components/OffCanvasSideBar";
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchAllRandomBooks, fetchBookByBookId} from "../../store/book";
+import {fetchBookByBookId} from "../../store/book";
+import {DetailsContentHolder} from "./DetailsContentHolder";
 
 
-export const Details = () => {
-
-    const book = useSelector(state => state.books ? state.books : [])
-    console.log(book)
+export const  Details = (props) => {
     const dispatchBooks = useDispatch()
+    const {match} = props
+    const book = useSelector(state => state.books
+        ? state.books.filter(books => books.bookId === match.params.bookId)
+        : []
+    );
+     const initialEffect = async () => {
+             dispatchBooks(fetchBookByBookId(match.params.bookId))
+         console.log(book)
+         console.log(book.bookId)
+     }
 
-    // const initialEffect = () => {
-    //     dispatchBooks(fetchBookByBookId())
-    // }
-    // React.useEffect(initialEffect, [dispatchBooks])
-
+    React.useEffect(initialEffect, [dispatchBooks])
+console.log(match)
 
     return (
+
         <>
             <MainNav />
             <Container fluid>
-                <Row>
+                <Row xs md={"10"}>
                     <DetailsSideBar />
                     <BackToHomeOffCanvasSideBar />
-                    <Col xs={'10'} className={'bg-secondary'} id={'content-wrapper'}>
-
-                        <Container fluid>
-                            <Row>
-                                <Col className={'d-flex justify-content-center'}>
-                                    1
-                                </Col>
-
-                                <Col className={'d-flex justify-content-center'}>
-                                    <h1 className={'text-center'}>Details</h1>
-                                </Col>
-                            </Row>
-                        </Container>
-
-                        <Container fluid className={'d-flex justify-content-center'}>
-                            <h1 className={'text-center'}>Description</h1>
-                        </Container>
-
+                    <Col xs={'12'} md={"10"} className={'bg-secondary'} id={'content-wrapper'}>
+                        {book.map(book => <DetailsContentHolder key={book.bookId} book={book}/>)}
                     </Col>
                 </Row>
             </Container>
         </>
     )
+
 }
+

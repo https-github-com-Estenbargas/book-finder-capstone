@@ -7,10 +7,10 @@ import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 export const BookRoute: Router = Router();
 
 BookRoute.route("/")
-    .get(isLoggedIn, getAllBooks)
+    .get(getAllBooks)
 
 BookRoute.route("/book/:bookId")
-    .get(isLoggedIn,
+    .get(
         asyncValidatorController([check("bookId", "Please Provide A Valid bookId").isUUID()])
         , getBookByBookId
     )
