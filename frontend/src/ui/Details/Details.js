@@ -4,22 +4,24 @@ import {BackToHomeSideBar, DetailsSideBar} from "../shared/components/SideBars";
 import {BackToHomeOffCanvasSideBar} from "../shared/components/OffCanvasSideBar";
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchAllRandomBooks, fetchBookByBookId} from "../../store/book";
+import {DetailsContentHolder} from "./DetailsContentHolder";
+import {HomeContentHolder} from "../Home/HomeContentHolder";
+import book, {fetchAllRandomBooks, fetchBookByBookId} from "../../store/book";
 
 
 export const Details = () => {
 
-    const book = useSelector(state => state.books ? state.books : [])
-    console.log(book)
+    const books = useSelector(state => state.books ? state.books : [])
+    console.log(books)
+
     const dispatchBooks = useDispatch()
 
-    // const initialEffect = () => {
-    //     dispatchBooks(fetchBookByBookId())
-    // }
-    // React.useEffect(initialEffect, [dispatchBooks])
 
-
-    return (
+    const initialEffect = () => {
+        dispatchBooks(fetchBookByBookId())
+    }
+    React.useEffect(initialEffect, [dispatchBooks])
+    return(
         <>
             <MainNav />
             <Container fluid>
@@ -27,23 +29,6 @@ export const Details = () => {
                     <DetailsSideBar />
                     <BackToHomeOffCanvasSideBar />
                     <Col xs={'10'} className={'bg-secondary'} id={'content-wrapper'}>
-
-                        <Container fluid>
-                            <Row>
-                                <Col className={'d-flex justify-content-center'}>
-                                    1
-                                </Col>
-
-                                <Col className={'d-flex justify-content-center'}>
-                                    <h1 className={'text-center'}>Details</h1>
-                                </Col>
-                            </Row>
-                        </Container>
-
-                        <Container fluid className={'d-flex justify-content-center'}>
-                            <h1 className={'text-center'}>Description</h1>
-                        </Container>
-
                     </Col>
                 </Row>
             </Container>
