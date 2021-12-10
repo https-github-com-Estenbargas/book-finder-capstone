@@ -42,9 +42,11 @@ export async function signInController(request: Request, response: Response) : P
                 message
             });
             const signInSuccessful = () => {
-                if(user.userActivationToken !== null) {
-                    signInFailed("Please Activate Your Account")
-                }
+
+                // if(user.userActivationToken !== null) {
+                //     signInFailed("Please Activate Your Account")
+                // }
+
                 if(request.session) {
                     request.session.user = user
                     request.session.jwt = authorization
