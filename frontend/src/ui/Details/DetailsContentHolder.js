@@ -1,7 +1,7 @@
 import {Button, Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
 import {httpConfig} from "../../utils/httpConfig";
-import {fetchBookByBookId, getAllBooks} from "../../store/book";
+import {fetchBookByBookId} from "../../store/book";
 
 export function DetailsContentHolder(props) {
   const  {book} = props

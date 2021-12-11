@@ -45,7 +45,7 @@ export async function signupUserController(request: Request, response: Response)
             message: "Profile Successfully Created Please Check Your Email.",
             data: null
         };
-        await  mailgunClient.messages.create(<string>process.env.MAILGUN_DOMAIN, mailgunMessage)
+        // await  mailgunClient.messages.create(<string>process.env.MAILGUN_DOMAIN, mailgunMessage)
         return response.json(status)
 
     } catch (error: any){

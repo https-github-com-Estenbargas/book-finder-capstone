@@ -9,29 +9,25 @@ import {DetailsContentHolder} from "./DetailsContentHolder";
 
 
 export const  Details = (props) => {
+
     const dispatchBooks = useDispatch()
     const {match} = props
     const book = useSelector(state => state.books
         ? state.books.filter(books => books.bookId === match.params.bookId)
         : []
     );
-     const initialEffect = async () => {
-             dispatchBooks(fetchBookByBookId(match.params.bookId))
-         console.log(book)
-         console.log(book.bookId)
-     }
-
+    const initialEffect = async () => {
+        dispatchBooks(fetchBookByBookId(match.params.bookId))
+    }
     React.useEffect(initialEffect, [dispatchBooks])
-console.log(match)
 
     return (
-
         <>
-            <MainNav />
+            <MainNav/>
             <Container fluid>
                 <Row xs md={"10"}>
-                    <DetailsSideBar />
-                    <BackToHomeOffCanvasSideBar />
+                    <DetailsSideBar/>
+                    <BackToHomeOffCanvasSideBar/>
                     <Col xs={'12'} md={"10"} className={'bg-secondary'} id={'content-wrapper'}>
                         {book.map(book => <DetailsContentHolder key={book.bookId} book={book}/>)}
                     </Col>
@@ -39,6 +35,6 @@ console.log(match)
             </Container>
         </>
     )
-
 }
+
 
