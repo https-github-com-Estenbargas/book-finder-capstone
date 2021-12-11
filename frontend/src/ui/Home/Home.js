@@ -25,9 +25,8 @@ export const Home = () => {
             <MainNav />
             <Container fluid>
                 <Row>
-                    <HomeSideBar />
-
-                    <Col xs={"12"} md={"10"}>
+                    <HomeOffCanvasSideBar />
+                    <Col>
                             {books.map(book => <HomeContentHolder key={book.bookId} book={book}/>)}
                     </Col>
                 </Row>

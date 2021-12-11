@@ -18,37 +18,33 @@ export function DetailsContentHolder(props) {
 
     return(
         <>
-            <Container fluid>
-                <Row>
-                    <Col>
-                        <Image src={book.bookImage} />
-                        <div className={"d-flex flex-column"}>
-                            <Button onClick={clickCollection} className={"w-25"}>Add To Collection</Button>
-                            <p>Link To Share</p>
+
+                    <Col md={"4"} lg className={"d-flex justify-content-center align-items-center flex-column"}>
+                        <h1 className={"text-center"}>{book.bookTitle}</h1>
+                        <h2 className={"text-center"}>{book.bookAuthor}</h2>
+                        <Image src={book.bookImage} id={"details-img"} />
+                        <div className={"d-flex flex-column my-3 justify-content-center align-items-center"}>
+                            <Button onClick={clickCollection} className={"my-3" } id={"details-button"}>Add To Collection</Button>
+                            <p className={"text-center"}>Link To Share</p>
                             <p>placeholder/details-page/{book.bookId}</p>
                         </div>
                     </Col>
 
-                    <Col className={'d-flex justify-content-center flex-column'}>
-                        <div className={"align-content-start"}>
-                            <h1>{book.bookTitle}</h1>
-                            <h2>{book.bookAuthor}</h2>
-                        </div>
-                        <div className={"my-3"}>
-                        <h3 className={'text-center'}>Details</h3>
-                        <ul>
-                            <li>Genre: {book.bookGenre}</li>
-                            <li>Publisher: {book.bookPublisher}</li>
-                            <li>ISBN: {book.bookIsbn}</li>
-                        </ul>
-                        </div>
-                    </Col>
-                </Row>
-            </Container>
+                    <Col md={"8"} lg className={'d-flex flex-column justify-content-center'}>
 
-            <Container fluid className={'d-flex justify-content-center flex-column my-5'}>
-                <h1 className={'text-center'}>Description</h1>
-                <p>{book.bookDescription}</p>
+                        <h2 className={'text-center'}>Description</h2>
+                        <p>{book.bookDescription}</p>
+                        <h3>Details</h3>
+                        <ul className={"mt-4"}>
+                            <li className={"h5"}>Genre: {book.bookGenre}</li>
+                            <li className={"h5"}>Publisher: {book.bookPublisher}</li>
+                            <li className={"h5"}>ISBN: {book.bookIsbn}</li>
+                        </ul>
+
+                    </Col>
+
+            <Container className={'d-flex justify-content-center flex-column my-5'}>
+
             </Container>
 
 

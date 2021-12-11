@@ -7,9 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchBookByBookId} from "../../store/book";
 import {DetailsContentHolder} from "./DetailsContentHolder";
 
-
 export const  Details = (props) => {
-
     const dispatchBooks = useDispatch()
     const {match} = props
     const book = useSelector(state => state.books
@@ -24,13 +22,12 @@ export const  Details = (props) => {
     return (
         <>
             <MainNav/>
-            <Container fluid>
-                <Row xs md={"10"}>
-                    <DetailsSideBar/>
-                    <BackToHomeOffCanvasSideBar/>
-                    <Col xs={'12'} md={"10"} className={'bg-secondary'} id={'content-wrapper'}>
+            <BackToHomeOffCanvasSideBar/>
+            <Container fluid className={"p-5"}>
+
+                <Row>
+
                         {book.map(book => <DetailsContentHolder key={book.bookId} book={book}/>)}
-                    </Col>
                 </Row>
             </Container>
         </>

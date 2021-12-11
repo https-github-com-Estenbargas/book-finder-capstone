@@ -28,7 +28,7 @@ function handleClick() {
     return(
         <>
         <Row xs={12} md className={"p-3 my-2 border-bottom border-dark"}>
-            <Col xs={2} className={"d-flex justify-content-center flex-column"}>
+            <Col md={2} className={"d-flex justify-content-center flex-column"}>
                 <Link to={`/details-page/${book.bookId}`} onClick={handleClick}  className={"d-flex justify-content-center my-2 p-1"}>
                     <Image src={book.bookImage}/>
                 </Link>

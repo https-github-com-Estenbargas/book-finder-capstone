@@ -7,7 +7,7 @@ export function MainNav() {
     return (
         <>
             <header>
-                <Navbar className="bg-secondary d-flex justify-content-end">
+                <Navbar className="bg-secondary d-flex justify-content-end border-bottom border-dark">
                     <Navbar.Brand className={"pe-2"}>
                         <Link to="/user-profile">
                             <Image className={"rounded-circle"} src={placeholder} width={"50"} height={"50"} alt={"Profile Image"}/>

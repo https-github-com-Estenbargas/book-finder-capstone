@@ -11,9 +11,16 @@
     font-size: x-large;
     color: white;
 }
+#details-img {
+    width: 250px;
+    height: 250px;
+}
+
+#details-button {
+    width: 250px;
+}
 #toggler-container {
-    position: absolute;
-    bottom: 93%;
+
 }
 
 body {
@@ -30,25 +37,59 @@ body {
     #input {
         font-size: medium;
     }
+    #offcanvas-sidebar {
+        width: 100%;
+    }
 }
 @media (max-width: 550px) {
     #sidebar-wrapper {
         display: none;
     }
 }
-@media (min-width: 550px) {
-    #sidebar-toggler {
-        display: none
-    }
 
-    #offcanvas-sidebar {
-        display: none;
-    }
+@media (max-height: 1800px ) {
     #toggler-container {
-
+        position: absolute;
+        bottom: 97%;
+        left: 5%;
     }
 }
 
-@media {
+@media (max-height: 1600px ) {
+    #toggler-container {
+        position: absolute;
+        bottom: 96%;
+    }
+}
+
+
+@media (max-height: 1400px ) {
+    #toggler-container {
+        position: absolute;
+        bottom: 96%;
+    }
+}
+
+
+@media (max-height: 1200px ) {
+        #toggler-container {
+            position: absolute;
+            bottom: 95%;
+        }
+}
+
+
+@media (max-height: 1000px ) {
+    #toggler-container {
+        position: absolute;
+        bottom: 94%;
+    }
+}
+
+@media (max-height: 700px ) {
+    #toggler-container {
+        position: absolute;
+        bottom: 91%;
+    }
 
 }
