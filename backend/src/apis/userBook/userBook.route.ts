@@ -14,7 +14,7 @@ import {UserBookPostValidator} from "./userBookPost.vaildator";
 export const UserBookRoute = Router();
 
 UserBookRoute.route("/")
-    .post(isLoggedIn,asyncValidatorController(checkSchema(UserBookPostValidator)), toggleUserBookController)
+    .post(isLoggedIn, toggleUserBookController)
 
 /*
 UserBookRoute.route("/books/:userBookUserId/:userBookBookId")

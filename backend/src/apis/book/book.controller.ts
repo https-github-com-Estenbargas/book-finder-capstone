@@ -4,10 +4,22 @@ import {selectBookByBookId} from "../../utils/book/selectBookbyBookId";
 import {selectAllBooks} from "../../utils/book/selectAllBooks";
 import {selectRandomBooks} from "../../utils/book/selectRandomBooks";
 import {selectBookByUserBookBookId} from "../../utils/book/selectBookByUserBookBookId";
+import {selectAllBooksByGenre} from "../../utils/book/selectAllBooksByGenre";
 
 export async function getAllBooks(request: Request, response: Response) : Promise<Response> {
     try {
         const data = await selectAllBooks();
+
+        const status: Status = {status: 200, data, message: null}
+        return response.json(status)
+
+    }catch (error: any) {
+        return response.json({status: 500, data:[], message: error.message})
+    }
+}
+export async function getAllBooksByGenre(request: Request, response: Response) : Promise<Response> {
+    try {
+        const data = await selectAllBooksByGenre();
 
         const status: Status = {status: 200, data, message: null}
         return response.json(status)

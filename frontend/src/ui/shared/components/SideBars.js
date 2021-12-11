@@ -2,8 +2,22 @@ import React from "react"
 import {Col, Nav} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {SearchBar} from "./SearchBar";
+import {httpConfig} from "../../../utils/httpConfig";
+import {fetchAllBooksByGenre, fetchBookByBookId} from "../../../store/book";
+import {useDispatch} from "react-redux";
 
 export function HomeSideBar() {
+    const dispatch = useDispatch()
+    const clickGenre = () => {
+        httpConfig.get("/apis/books/genre/")
+            .then(reply => {
+                if(reply.status === 200) {
+                    dispatch(fetchAllBooksByGenre())
+                }
+                console.log(reply)
+            });
+    }
+
     return (
         <>
             <Col xs id={"sidebar-wrapper"}>
@@ -16,12 +30,7 @@ export function HomeSideBar() {
                         </Link>
                     </Nav.Item>
                     <Nav.Item className={"pt-2"}>
-                        <a href={"#top-rated-filter"}>
-                            <p className={"text-white text-center"}>Top Rated</p>
-                        </a>
-                    </Nav.Item>
-                    <Nav.Item className={"pt-2"}>
-                        <a href={"#genre-filter"}>
+                        <a onClick={clickGenre}>
                             <p className={"text-white text-center"}>Genre</p>
                         </a>
                     </Nav.Item>
@@ -84,6 +93,7 @@ export function BackToHomeSideBar() {
     )
 }
 export function DetailsSideBar() {
+
     return (
         <>
             <Col xs id={"sidebar-wrapper"}>

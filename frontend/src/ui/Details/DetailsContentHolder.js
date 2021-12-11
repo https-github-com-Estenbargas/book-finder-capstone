@@ -1,8 +1,21 @@
 import {Button, Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
+import {httpConfig} from "../../utils/httpConfig";
+import {fetchBookByBookId, getAllBooks} from "../../store/book";
 
 export function DetailsContentHolder(props) {
   const  {book} = props
+
+    const clickCollection = () => {
+        httpConfig.post("/apis/user-book/" , {userBookBookId: book.bookId})
+            .then(reply => {
+                if(reply.status === 200) {
+                    dispatchEvent(fetchBookByBookId(book.bookId))
+                }
+                console.log(reply)
+            });
+    }
+
     return(
         <>
             <Container fluid>
@@ -10,8 +23,7 @@ export function DetailsContentHolder(props) {
                     <Col>
                         <Image src={book.bookImage} />
                         <div className={"d-flex flex-column"}>
-                            <Button className={"w-25"}>Add To Collection</Button>
-                            <Button className={"w-25"}>Add To Favorites</Button>
+                            <Button onClick={clickCollection} className={"w-25"}>Add To Collection</Button>
                             <p>Link To Share</p>
                             <p>placeholder/details-page/{book.bookId}</p>
                         </div>

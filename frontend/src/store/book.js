@@ -11,16 +11,23 @@ const bookSlice = createSlice({
         },
         getBookDetailsByBookId: (books, action) => {
             return [action.payload]
-        }
+        },
+        getAllBooksByBookGenre: (books, action) => {
+            return action.payload
     },
-})
+},})
 
 export const {getAllBooks} = bookSlice.actions
 export const {getBookDetailsByBookId} = bookSlice.actions
-
+export const {getAllBooksByBookGenre} = bookSlice.actions
 export const fetchAllBooks = () => async (dispatch) => {
     const {data} = await httpConfig.get("/apis/books/")
     dispatch(getAllBooks(data))
+    console.log(data)
+}
+export const fetchAllBooksByGenre = () => async (dispatch) => {
+    const {data} = await httpConfig.get("/apis/books/genre/")
+    dispatch(getAllBooksByBookGenre(data))
     console.log(data)
 }
 export const fetchBookByBookId = (bookId) => async (dispatch) => {

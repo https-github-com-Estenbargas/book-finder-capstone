@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchBookByBookId} from "../../store/book";
 import {useHistory} from "react-router-dom";
+import {httpConfig} from "../../utils/httpConfig";
 
 
 export function HomeContentHolder(props) {
@@ -14,6 +15,16 @@ function handleClick() {
     history.push(`/details-page/${book.bookId}`)
 }
 
+    const clickCollection = () => {
+        httpConfig.post("/apis/user-book/" , {userBookBookId: book.bookId})
+            .then(reply => {
+                if(reply.status === 200) {
+                    dispatchEvent(fetchBookByBookId(book.bookId))
+                }
+                console.log(reply)
+            });
+    }
+
     return(
         <>
         <Row xs={12} md className={"p-3 my-2 border-bottom border-dark"}>
@@ -23,8 +34,7 @@ function handleClick() {
                 </Link>
 
                 <div className={"d-flex justify-content-center flex-column"}>
-                    <Button>Add To Favorites</Button>
-                    <Button>Add To Collection</Button>
+                    <Button onClick={clickCollection}>Add To Collection</Button>
                 </div>
 
             </Col>
