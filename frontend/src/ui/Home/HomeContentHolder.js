@@ -27,8 +27,6 @@ function handleClick() {
 }
 
 
-    console.log(book.bookId)
-    const bookId = book.bookId
     return(
         <>
         <Row xs={12} md className={"p-3 my-2 border-bottom border-dark"}>
