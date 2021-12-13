@@ -34,6 +34,7 @@ export const LoginForm = () => {
                 if(reply.status === 200 && reply.headers["authorization"])
                 resetForm()
                 let jwtToken = jwtDecode(reply.headers["authorization"])
+                localStorage.setItem("authorization", reply.headers["authorization"])
                 dispatch(getAuth(jwtToken))
             })
     }
@@ -53,9 +54,9 @@ function PostLoginFormContent(props) {
     const history = useHistory()
 
 
-    function handleClick() {
-        history.push("/")
-    }
+    // function handleClick() {
+    //     history.push("/")
+    // }
 
     const {
         status,
@@ -102,7 +103,7 @@ function PostLoginFormContent(props) {
                 </div>
                 <div>
                     <button className="btn btn-primary mb-2"type="submit">Submit</button>
-                    <a onClick={handleClick}>Back To Home</a>
+                    <Link exact to={"/"}>Back To Home</Link>
                 </div>
             </form>
             {

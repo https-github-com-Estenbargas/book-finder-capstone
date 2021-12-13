@@ -2,8 +2,8 @@ import {Router} from "express";
 import {
     getAllUserBookByUserId,
     getBooksByUserId,
-    getUserBookByUserBookBookId, getUserBookByUserBookUserId,
-    toggleUserBookController
+    getUserBookByUserBookBookId, getUserBookByUserBookUserId, toggleUserBookCollectionController,
+    toggleUserBookFavoriteController
 } from "./userBook.controller";
 import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 import {asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
@@ -14,7 +14,13 @@ import {UserBookPostValidator} from "./userBookPost.vaildator";
 export const UserBookRoute = Router();
 
 UserBookRoute.route("/")
-    .post(isLoggedIn, toggleUserBookController)
+    .post(isLoggedIn, toggleUserBookCollectionController)
+
+
+UserBookRoute.route("/favorite")
+    .post(isLoggedIn, toggleUserBookFavoriteController)
+
+
 
 /*
 UserBookRoute.route("/books/:userBookUserId/:userBookBookId")

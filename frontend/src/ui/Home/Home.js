@@ -7,18 +7,23 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAllBooks} from "../../store/book";
 import Placeholder from "../shared/imgs/placeholder-profileimg.png";
 import {HomeContentHolder} from "./HomeContentHolder";
+import {fetchUserByUserId} from "../../store/user";
+import {fetchAuth} from "../../store/auth";
 
 
 
 export const Home = () => {
     const books = useSelector(state => state.books ? state.books : [])
     console.log(books)
-    const dispatchBooks = useDispatch()
+    const dispatch = useDispatch()
+    const user = useSelector(state => {return state.auth ? state.auth : null})
+
 
     const initialEffect = () => {
-        dispatchBooks(fetchAllBooks())
+        dispatch(fetchAllBooks())
+        dispatch(fetchUserByUserId())
     }
-    React.useEffect(initialEffect, [dispatchBooks])
+    React.useEffect(initialEffect, [dispatch])
 
     return (
         <>
@@ -27,7 +32,7 @@ export const Home = () => {
                 <Row>
                     <HomeOffCanvasSideBar />
                     <Col>
-                            {books.map(book => <HomeContentHolder key={book.bookId} book={book}/>)}
+                            {books.map(book => <HomeContentHolder key={book.bookId} book={book} user={user}/>)}
                     </Col>
                 </Row>
             </Container>

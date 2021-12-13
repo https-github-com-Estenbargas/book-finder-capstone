@@ -18,7 +18,6 @@ export function isLoggedIn(request: Request, response: Response, nextFunction: N
         return headers["authorization"]
     };
 
-    console.log(request.session)
     const unverifiedJwtToken: string | undefined = getJwtTokenFromHeader(request.headers);
 
     const isJwtVaild = (unverifiedJwtToken: string | undefined): boolean => {

@@ -2,24 +2,34 @@ import React from "react"
 import {Button, Col, Image, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchBookByBookId} from "../../store/book";
+import {fetchAllBooks, fetchBookByBookId} from "../../store/book";
 import {useHistory} from "react-router-dom";
 import {httpConfig} from "../../utils/httpConfig";
 
 
-export function HomeContentHolder(props) {
-
-    const {book} = props
+export function HomeContentHolder({book, user}, props) {
+    // console.log(book)
+    const dispatch = useDispatch()
    let history = useHistory()
+
 function handleClick() {
     history.push(`/details-page/${book.bookId}`)
 }
 
     const clickCollection = () => {
-        httpConfig.post("/apis/user-book/" , {userBookBookId: book.bookId})
+        httpConfig.post("/apis/user-book/" , {userBookBookId: book.bookId, userBookUserId: user.userId})
             .then(reply => {
                 if(reply.status === 200) {
-                    dispatchEvent(fetchBookByBookId(book.bookId))
+                    dispatch(fetchAllBooks())
+                }
+                console.log(reply)
+            });
+    }
+    const clickFavorite = () => {
+        httpConfig.post("/apis/user-book/favorite/" , {userBookBookId: book.bookId, userBookUserId: user.userId})
+            .then(reply => {
+                if(reply.status === 200) {
+                    dispatch(fetchAllBooks())
                 }
                 console.log(reply)
             });

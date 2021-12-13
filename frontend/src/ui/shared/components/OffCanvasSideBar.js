@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Button, Col, Container, Nav, Offcanvas} from "react-bootstrap";
 import {SearchBar} from "./SearchBar";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {httpConfig} from "../../../utils/httpConfig";
 import {fetchAllBooksByGenre} from "../../../store/book";
@@ -15,11 +15,19 @@ import {fetchAllBooksByGenre} from "../../../store/book";
 
 export function HomeOffCanvasSideBar({name, ...props}) {
     const [show, setShow] = useState(false)
-
+    const history = useHistory()
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
-
     const dispatch = useDispatch()
+
+    function handleLibraryClick() {
+        history.push("/library")
+    }
+
+    function handleUserListClick() {
+        history.push("/user-list")
+    }
+
     const clickGenre = () => {
         httpConfig.get("/apis/books/genre/")
             .then(reply => {
@@ -43,9 +51,9 @@ export function HomeOffCanvasSideBar({name, ...props}) {
                 <Offcanvas.Body>
                     <Nav className={"d-flex flex-column justify-content-center py-3"} id={"offcanvas-nav"}>
                         <Nav.Item className={"pt-2"}>
-                        <Link exact to={"/library"}>
+                        <a onClick={handleLibraryClick}>
                             <p className={"text-white text-center h1"}>Library</p>
-                        </Link>
+                        </a>
                         </Nav.Item>
                         <Nav.Item className={"pt-2"}>
                             <a onClick={clickGenre}>
@@ -53,9 +61,9 @@ export function HomeOffCanvasSideBar({name, ...props}) {
                             </a>
                         </Nav.Item>
                         <Nav.Item className={"pt-2"}>
-                            <Link exact to={"/user-list"}>
+                            <a onClick={handleUserListClick}>
                                 <p className={"text-white text-center h1"}>Find My Friend</p>
-                            </Link>
+                            </a>
                         </Nav.Item>
                     </Nav>
                 </Offcanvas.Body>
