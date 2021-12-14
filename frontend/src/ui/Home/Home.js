@@ -9,7 +9,7 @@ import Placeholder from "../shared/imgs/placeholder-profileimg.png";
 import {HomeContentHolder} from "./HomeContentHolder";
 import {fetchUserByUserId} from "../../store/user";
 import {fetchAuth} from "../../store/auth";
-
+import {fetchUserBookByUserId} from "../../store/userBook";
 
 
 export const Home = () => {
@@ -27,6 +27,7 @@ export const Home = () => {
 
     return (
         <>
+
             <MainNav />
             <Container fluid>
                 <Row>

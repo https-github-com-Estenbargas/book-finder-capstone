@@ -20,10 +20,6 @@ export function HomeOffCanvasSideBar({name, ...props}) {
     const handleShow = () => setShow(true)
     const dispatch = useDispatch()
 
-    function handleLibraryClick() {
-        history.push("/library")
-    }
-
     function handleUserListClick() {
         history.push("/user-list")
     }
@@ -51,9 +47,9 @@ export function HomeOffCanvasSideBar({name, ...props}) {
                 <Offcanvas.Body>
                     <Nav className={"d-flex flex-column justify-content-center py-3"} id={"offcanvas-nav"}>
                         <Nav.Item className={"pt-2"}>
-                        <a onClick={handleLibraryClick}>
+                        <Link exact to={"/library"}>
                             <p className={"text-white text-center h1"}>Library</p>
-                        </a>
+                        </Link>
                         </Nav.Item>
                         <Nav.Item className={"pt-2"}>
                             <a onClick={clickGenre}>
@@ -92,26 +88,10 @@ export function LibraryOffCanvasSideBar({name, ...props}) {
                 <Offcanvas.Header closeButton>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <SearchBar />
                     <Nav className={"d-flex flex-column py-3"} id={"offcanvas-nav"}>
                         <Nav.Item>
                             <a onClick={handleHomeClick}>
                                 <p className={"text-white text-center"}>Back To Home</p>
-                            </a>
-                        </Nav.Item>
-                        <Nav.Item className={"pt-2"}>
-                            <a href={"#collection-section"}>
-                                <p className={"text-center"}>Collection</p>
-                            </a>
-                        </Nav.Item>
-                        <Nav.Item className={"pt-2"}>
-                            <a href={"#favorites-section"}>
-                                <p className={"text-center"}>Favorites</p>
-                            </a>
-                        </Nav.Item>
-                        <Nav.Item className={"pt-2"}>
-                            <a href={"#recently-viewed-section"}>
-                                <p className={"text-center"}>Recent</p>
                             </a>
                         </Nav.Item>
                     </Nav>

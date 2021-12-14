@@ -38,9 +38,14 @@ export const fetchAllBooksByGenre = () => async (dispatch) => {
 export const fetchBooksByUserBookBookId = () => async (dispatch, getState) =>{
     await dispatch(fetchUserBookByUserId())
     const state = getState()
-    console.log(state)
-        const {data} = await httpConfig.get(`/apis/books/user-book`)
-        dispatch(getBooksByUserBookBookId(data))
+    const manyBooks = []
+    for(let i =0; i < state.userBooks.length; i++) {
+        const {data} = await httpConfig.get(`/apis/books/user-book/${state.userBooks[i].userBookBookId}`)
+        // dispatch(getBooksByUserBookBookId(data))
+        manyBooks.push(data)
+    }
+    dispatch(getBooksByUserBookBookId(manyBooks, ))
+
 
 }
 export const fetchBookByBookId = (bookId) => async (dispatch) => {

@@ -30,23 +30,23 @@ export function DetailsContentHolder(props) {
     return(
         <>
 
-                    <Col md={"4"} lg className={"d-flex justify-content-center align-items-center flex-column"}>
+                    <Col lg={"5"}  className={"d-flex justify-content-center align-items-center flex-column"}>
                         <h1 className={"text-center"}>{book.bookTitle}</h1>
-                        <h2 className={"text-center"}>{book.bookAuthor}</h2>
+                        <h2 className={"text-center mb-3"}>{book.bookAuthor}</h2>
                         <Image src={book.bookImage} id={"details-img"} />
                         <div className={"d-flex flex-column my-3 justify-content-center align-items-center"}>
-                            <Button onClick={clickCollection} className={"my-3" }>Add To Collection</Button>
-                            <Button onClick={clickFavorite} className={"w-auto"}>Add To Favorite</Button>
+                            <Button onClick={clickCollection} className={"mb-2"}>Add To Collection</Button>
+                            <Button onClick={clickFavorite} className={"w-auto mb-2"}>Add To Favorite</Button>
                             <p className={"text-center"}>Link To Share</p>
                             <p>placeholder/details-page/{book.bookId}</p>
                         </div>
                     </Col>
 
-                    <Col md={"8"} lg className={'d-flex flex-column justify-content-center'}>
+                    <Col lg={"7"}  className={'d-flex flex-column justify-content-center p-3'}>
 
                         <h2 className={'text-center'}>Description</h2>
                         <p>{book.bookDescription}</p>
-                        <h3>Details</h3>
+                        <h3 className={"text-center"}>Details</h3>
                         <ul className={"mt-4"}>
                             <li className={"h5"}>Genre: {book.bookGenre}</li>
                             <li className={"h5"}>Publisher: {book.bookPublisher}</li>

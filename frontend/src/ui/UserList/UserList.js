@@ -11,9 +11,8 @@ export const UserList = () => {
             <MainNav/>
             <Container fluid>
                 <Row>
-                    <BackToHomeSideBar/>
                     <BackToHomeOffCanvasSideBar/>
-                    <Col xs={'10'} className={'bg-secondary'} id={'content-wrapper'}>
+                    <Col className={'bg-secondary'} id={'content-wrapper'}>
                         {Array.from({ length: 9}).map((_, idx) => (
                         <Row className={"border-top border-dark"}>
                             <Image className={"user-images rounded-circle p-3"} src={Placeholder} alt={"placeholder"} width={"30"} height={"30"} />
