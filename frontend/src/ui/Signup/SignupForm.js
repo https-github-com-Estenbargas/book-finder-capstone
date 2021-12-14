@@ -116,7 +116,8 @@ function PostFormContent(props) {
             </div>
             <div>
                 <button className="btn btn-primary" type="submit">Submit</button>
-                <button className="btn btn-danger" onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</button>
+                <button className="btn btn-danger ms-2" onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</button>
+                <Link className={"mt-2 ms-2"} exact to={"/"}>Back To Home</Link>
             </div>
         </form>
             {
