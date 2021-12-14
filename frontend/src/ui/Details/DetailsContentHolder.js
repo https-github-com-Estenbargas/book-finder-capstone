@@ -1,16 +1,27 @@
 import {Button, Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
 import {httpConfig} from "../../utils/httpConfig";
-import {fetchBookByBookId} from "../../store/book";
+import {fetchAllBooks, fetchBookByBookId} from "../../store/book";
+import {useDispatch} from "react-redux";
 
 export function DetailsContentHolder(props) {
-  const  {book} = props
+  const  {book, user} = props
+    const dispatch = useDispatch()
 
     const clickCollection = () => {
-        httpConfig.post("/apis/user-book/" , {userBookBookId: book.bookId})
+        httpConfig.post("/apis/user-book/" , {userBookBookId: book.bookId, userBookUserId: user.userId})
             .then(reply => {
                 if(reply.status === 200) {
-                    dispatchEvent(fetchBookByBookId(book.bookId))
+                    dispatch(fetchAllBooks())
+                }
+                console.log(reply)
+            });
+    }
+    const clickFavorite = () => {
+        httpConfig.post("/apis/user-book/favorite/" , {userBookBookId: book.bookId, userBookUserId: user.userId})
+            .then(reply => {
+                if(reply.status === 200) {
+                    dispatch(fetchAllBooks())
                 }
                 console.log(reply)
             });
@@ -24,7 +35,8 @@ export function DetailsContentHolder(props) {
                         <h2 className={"text-center"}>{book.bookAuthor}</h2>
                         <Image src={book.bookImage} id={"details-img"} />
                         <div className={"d-flex flex-column my-3 justify-content-center align-items-center"}>
-                            <Button onClick={clickCollection} className={"my-3" } id={"details-button"}>Add To Collection</Button>
+                            <Button onClick={clickCollection} className={"my-3" }>Add To Collection</Button>
+                            <Button onClick={clickFavorite} className={"w-auto"}>Add To Favorite</Button>
                             <p className={"text-center"}>Link To Share</p>
                             <p>placeholder/details-page/{book.bookId}</p>
                         </div>

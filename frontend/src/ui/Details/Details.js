@@ -6,6 +6,7 @@ import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchBookByBookId} from "../../store/book";
 import {DetailsContentHolder} from "./DetailsContentHolder";
+import {fetchUserByUserId} from "../../store/user";
 
 export const  Details = (props) => {
     const dispatchBooks = useDispatch()
@@ -14,8 +15,10 @@ export const  Details = (props) => {
         ? state.books.filter(books => books.bookId === match.params.bookId)
         : []
     );
+    const user = useSelector(state => {return state.auth ? state.auth : null})
     const initialEffect = async () => {
         dispatchBooks(fetchBookByBookId(match.params.bookId))
+        dispatchBooks(fetchUserByUserId())
     }
     React.useEffect(initialEffect, [dispatchBooks])
 
@@ -27,7 +30,7 @@ export const  Details = (props) => {
 
                 <Row>
 
-                        {book.map(book => <DetailsContentHolder key={book.bookId} book={book}/>)}
+                        {book.map(book => <DetailsContentHolder key={book.bookId} book={book} user={user}/>)}
                 </Row>
             </Container>
         </>

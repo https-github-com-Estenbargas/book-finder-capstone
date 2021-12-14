@@ -77,7 +77,10 @@ export function LibraryOffCanvasSideBar({name, ...props}) {
 
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
-
+    const history = useHistory()
+    function handleHomeClick() {
+        history.push("/")
+    }
     return (
 
         <>
@@ -92,9 +95,9 @@ export function LibraryOffCanvasSideBar({name, ...props}) {
                     <SearchBar />
                     <Nav className={"d-flex flex-column py-3"} id={"offcanvas-nav"}>
                         <Nav.Item>
-                            <Link exact to={"/"}>
+                            <a onClick={handleHomeClick}>
                                 <p className={"text-white text-center"}>Back To Home</p>
-                            </Link>
+                            </a>
                         </Nav.Item>
                         <Nav.Item className={"pt-2"}>
                             <a href={"#collection-section"}>

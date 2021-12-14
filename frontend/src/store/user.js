@@ -12,7 +12,7 @@ const userSlice = createSlice({
         },
         getUserByUserId: (users, action) => {
             return action.payload
-        }
+        },
     },
 })
 
