@@ -33,11 +33,11 @@ export const Library = () => {
             <Container fluid>
 
 
-                <Row className={"bg-dark"} id={"collection-section"}>
+                <Row className={"bg-dark p-2"} id={"collection-section"}>
                     <h1 className={"text-light p-2 my-3"}>Collection</h1>
-                    {book.map(Book => <CollectionContentHolder key={userBook.userBookUserId} book={Book} user={user} userBook={userBook}/>)}
+                            {book.map(Book => <CollectionContentHolder key={userBook.userBookUserId} book={Book} user={user} userBook={userBook}/>)}
                 </Row>
-                <Row id={"favorites-section"} className={"bg-light"} >
+                <Row id={"favorites-section"} className={"bg-light p-2"} >
                     <h1 className={"p-2 my-3"}>Favorite</h1>
                     {book.map(Book => <FavoriteContentHolder key={userBook.userBookUserId} book={Book} user={user} userBook={userBook}/>)}
                 </Row>
