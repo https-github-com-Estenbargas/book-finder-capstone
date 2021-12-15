@@ -5,7 +5,20 @@ import React from "react";
 import {MainNav} from "../shared/components/NavBar";
 import Placeholder from "../shared/imgs/placeholder-profileimg.png";
 import "./UserList.css"
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAllUsers} from "../../store/user";
+import {UserContentHolder} from "./userContentHolder";
 export const UserList = () => {
+
+    const users = useSelector(state => state.users ? state.users: [])
+    console.log(users)
+    const dispatchUsers = useDispatch()
+
+    const initialEffect = () => {
+        dispatchUsers(fetchAllUsers())
+    }
+    React.useEffect(initialEffect, [dispatchUsers])
+
     return (
         <>
             <MainNav/>
@@ -14,12 +27,7 @@ export const UserList = () => {
                     <BackToHomeSideBar/>
                     <BackToHomeOffCanvasSideBar/>
                     <Col xs={'10'} className={'bg-secondary'} id={'content-wrapper'}>
-                        {Array.from({ length: 9}).map((_, idx) => (
-                        <Row className={"border-top border-dark"}>
-                            <Image className={"user-images rounded-circle p-3"} src={Placeholder} alt={"placeholder"} width={"30"} height={"30"} />
-                            <p>PlaceHolder Text</p>
-                        </Row>
-                        ))}
+                        {users.map(user => <UserContentHolder key={user.userId} user={user}/>)}
                     </Col>
                 </Row>
             </Container>

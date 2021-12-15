@@ -23,6 +23,7 @@ export const fetchAllUsers = () => async (dispatch) => {
     const {data} = await httpConfig.get("/apis/user")
     dispatch(getAllUsers(data))
 }
+
 export const fetchUserByUserId = () => async (dispatch, getState) => {
     await dispatch(fetchAuth())
     const {auth} = getState()

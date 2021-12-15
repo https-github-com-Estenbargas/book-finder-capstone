@@ -16,7 +16,7 @@ UserRoute.route("/")
     .get(getAllUsers)
     .post(putUserController);
 UserRoute.route("/:userId")
-    .get(isLoggedIn,
+    .get(
         asyncValidatorController([check("userId", "Please Provide A Valid UserId").isUUID()])
         , getPartialUserByUserId
     )
