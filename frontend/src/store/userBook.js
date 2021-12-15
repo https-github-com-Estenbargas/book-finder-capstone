@@ -10,13 +10,15 @@ const userSlice = createSlice({
             getUserBookByUserId: (userBooks, action) => {
                 return action.payload
             },
+            getUserBookByUserIdParams: (userBooks, action) => {
+                return action.payload
+            }
         }
 })
 
 
 export const {getUserBookByUserId} = userSlice.actions
-
-
+export const {getUserBookByUserIdParams} = userSlice.actions
 
 export const fetchUserBookByUserId = () => async (dispatch, getState) => {
     await dispatch(fetchAuth())
@@ -28,6 +30,14 @@ export const fetchUserBookByUserId = () => async (dispatch, getState) => {
     }
 }
 
-
+export const fetchUserBookByUserIdParams = (userId) => async (dispatch, getState) => {
+    await dispatch(fetchAuth())
+    const {auth} = getState()
+    if(auth !== null) {
+        const {data} = await httpConfig.get(`/apis/user-book/books/${userId}`)
+        dispatch(getUserBookByUserId(data))
+        console.log(data)
+    }
+}
 
 export default userSlice.reducer

@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAllBooks} from "../../store/book";
 import Placeholder from "../shared/imgs/placeholder-profileimg.png";
 import {HomeContentHolder} from "./HomeContentHolder";
-import {fetchUserByUserId} from "../../store/user";
+import {fetchAllUsers, fetchUserByUserId} from "../../store/user";
 import {fetchAuth} from "../../store/auth";
 import {fetchUserBookByUserId} from "../../store/userBook";
 import {Link} from "react-router-dom";
@@ -23,6 +23,7 @@ export const Home = () => {
     const initialEffect = async () => {
        await dispatch(fetchAllBooks())
        await dispatch(fetchUserByUserId())
+        dispatch(fetchAllUsers())
     }
     React.useEffect(initialEffect, [dispatch])
     return (

@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {httpConfig} from "../utils/httpConfig";
 import {act} from "react-dom/test-utils";
-import {fetchUserBookByUserId} from "./userBook";
+import {fetchUserBookByUserId, fetchUserBookByUserIdParams} from "./userBook";
 import {fetchAuth} from "./auth";
 
 
@@ -26,6 +26,9 @@ const bookSlice = createSlice({
         },
         getBooksByUserBookBookId : (books, action) => {
             return action.payload
+        },
+        getBooksByUserBookBookIdParams: (books, action) => {
+            return action.payload
         }
     }
 })
@@ -34,12 +37,14 @@ export const {getAllBooks} = bookSlice.actions
 export const {getBookDetailsByBookId} = bookSlice.actions
 export const {getUserBooks} = bookSlice.actions
 export const {getRandomBooks} = bookSlice.actions
-
 export const {getAllBooksByBookGenre} = bookSlice.actions
 export const {getBooksByUserBookBookId} = bookSlice.actions
+export const {getBooksByUserBookBookIdParams} = bookSlice.actions
+
 export const fetchAllBooks = () => async (dispatch) => {
     const {data} = await httpConfig.get("/apis/books/")
     dispatch(getAllBooks(data))
+    console.log(data)
 }
 export const fetchAllBooksByGenre = () => async (dispatch) => {
     const {data} = await httpConfig.get("/apis/books/genre/")
@@ -71,5 +76,15 @@ export const fetchUserBooks = (userBookBookId) => async (dispatch) => {
     const {data} = await httpConfig.get(`/apis/user-book/${userBookBookId}`)
     dispatch(getUserBooks(data))
 }
-
+export const fetchBooksByUserBookBookIdParams = (userId) => async (dispatch, getState) =>{
+    await dispatch(fetchUserBookByUserIdParams(userId))
+    const state = getState()
+    const manyBooks = []
+    for(let i =0; i < state.userBooks.length; i++) {
+        const {data} = await httpConfig.get(`/apis/books/user-book/${state.userBooks[i].userBookBookId}`)
+        // dispatch(getBooksByUserBookBookId(data))
+        manyBooks.push(data)
+    }
+    dispatch(getBooksByUserBookBookId(manyBooks, ))
+}
 export default bookSlice.reducer

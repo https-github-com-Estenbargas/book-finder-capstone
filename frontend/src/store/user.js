@@ -13,11 +13,15 @@ const userSlice = createSlice({
         getUserByUserId: (users, action) => {
             return action.payload
         },
+        getUserByUserIdParams: (users, action) => {
+            return action.payload
+        }
     },
 })
 
 export const {getAllUsers} = userSlice.actions
 export const {getUserByUserId} = userSlice.actions
+export const {getUserbyUserIdParams} = userSlice.actions
 
 export const fetchAllUsers = () => async (dispatch) => {
     const {data} = await httpConfig.get("/apis/user")
@@ -30,6 +34,16 @@ export const fetchUserByUserId = () => async (dispatch, getState) => {
     console.log(auth)
     if(auth !== null) {
         const {data} = await httpConfig.get(`/apis/user/${auth.userId}`)
+        console.log(data)
+        dispatch(getUserByUserId(data))
+    }
+}
+
+export const fetchUserByUserIdParams = (userId) => async (dispatch, getState) => {
+    await dispatch(fetchAuth())
+    const {auth} = getState()
+    if(auth !== null) {
+        const {data} = await httpConfig.get(`/apis/user/${userId}`)
         console.log(data)
         dispatch(getUserByUserId(data))
     }

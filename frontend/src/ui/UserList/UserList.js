@@ -8,13 +8,15 @@ import "./UserList.css"
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllUsers} from "../../store/user";
 import {UserContentHolder} from "./userContentHolder";
+import {fetchAuth} from "../../store/auth";
 export const UserList = () => {
 
     const users = useSelector(state => state.users ? state.users: [])
     console.log(users)
     const dispatchUsers = useDispatch()
 
-    const initialEffect = () => {
+    const initialEffect = async () => {
+        await dispatchUsers(fetchAuth())
         dispatchUsers(fetchAllUsers())
     }
     React.useEffect(initialEffect, [dispatchUsers])
@@ -26,7 +28,7 @@ export const UserList = () => {
                 <Row>
                     <BackToHomeOffCanvasSideBar/>
                     <Col className={'bg-secondary'} id={'content-wrapper'}>
-
+                        {users.map(user => <UserContentHolder key = {user.userId} user = {user}/>)}
                     </Col>
                 </Row>
             </Container>
