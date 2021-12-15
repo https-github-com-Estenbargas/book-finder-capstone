@@ -73,7 +73,7 @@ function PostFormContent(props) {
 
     return(
         <>
-        <form onSubmit={handleSubmit}>
+        <form className={"w-auto"} onSubmit={handleSubmit}>
             <div className="form-group my-3">
                 <label htmlFor="userEmail">Email Address</label>
                 <div className="input-group my-2">

@@ -44,13 +44,13 @@ function handleClick() {
                 </Link>
 
                 <div className={"d-flex justify-content-center flex-column w-auto"}>
-                    <Button className={"justify-content-center"} onClick={clickCollection}>Add To Collection</Button>
-                    <Button className={"mt-2 align-items-center"} onClick={clickFavorite}>Add To Favorite</Button>
+                    <Button className={"justify-content-center"} variant={"outline-light"} onClick={clickCollection}>Add To Collection</Button>
+                    <Button className={"mt-2 align-items-center"} variant={"outline-light"} onClick={clickFavorite}>Add To Favorite</Button>
                 </div>
 
             </Col>
-            <Col className={"d-flex flex-column"}>
-                <p>Title: {book.bookTitle}</p>
+            <Col className={"d-flex flex-column text-light"}>
+                <h3>{book.bookTitle}</h3>
                 <p>Author: {book.bookAuthor}</p>
                 <p>Genre: {book.bookGenre}</p>
                 <div>

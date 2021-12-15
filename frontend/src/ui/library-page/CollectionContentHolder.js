@@ -32,7 +32,7 @@ export const CollectionContentHolder =  ({book,user,userBook}, props) => {
                                 <Image className={"library-img"} src={book.bookImage} />
                             </a>
 
-                            <p className={"text-center text-light my-3"}>{book.bookTitle}</p>
+                            <p className={"text-center text-light h5 my-3"}>{book.bookTitle}</p>
                         </Col>
                     </>
                 )
