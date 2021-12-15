@@ -1,20 +1,6 @@
-#form-wrapper {
-    width: 43rem;
-    background-color: gray;
-}
-.input-labels {
-    display: flex;
-    flex-flow: column;
-}
-#form-button {
-    width: 20%;
-}
 body {
     background-color: #6c757d !important;
 }
-
-@media (max-width: 510px)  {
-    #form-button {
-        width: 50%;
-    }
+label {
+    color: white
 }

@@ -74,9 +74,9 @@ function PostFormContent(props) {
     return(
         <>
         <form onSubmit={handleSubmit}>
-            <div className="form-group">
+            <div className="form-group my-3">
                 <label htmlFor="userEmail">Email Address</label>
-                <div className="input-group">
+                <div className="input-group my-2">
                     <input type="email" className="form-control" name="userEmail" value={values.userEmail} placeholder="Enter Email" onChange={handleChange} onBlur={handleBlur}/>
                 </div>
                 {
@@ -89,7 +89,7 @@ function PostFormContent(props) {
             </div>
             <div className="form-group">
                 <label htmlFor="userPassword">Password</label>
-                <div className="input-group">
+                <div className="input-group my-2">
                     <input type="password" className="form-control" name="userPassword" value={values.userPassword} placeholder="Enter Password" onChange={handleChange} onBlur={handleBlur}/>
                 </div>
                 {
@@ -103,7 +103,7 @@ function PostFormContent(props) {
 
             <div className="form-group">
                 <label htmlFor="userName">Username</label>
-                <div className="input-group">
+                <div className="input-group my-2">
                     <input type="text" className="form-control" name="userName" value={values.userName} placeholder="Enter Username" onChange={handleChange} onBlur={handleBlur}/>
                 </div>
                 {
@@ -115,8 +115,9 @@ function PostFormContent(props) {
                 }
             </div>
             <div>
-                <button className="btn btn-primary mb-2" type="submit">Submit</button>
-                <button className="btn btn-danger" onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</button>
+                <button className="btn btn-primary" type="submit">Submit</button>
+                <button className="btn btn-danger ms-2" onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</button>
+                <Link className={"mt-2 ms-2"} exact to={"/"}>Back To Home</Link>
             </div>
         </form>
             {

@@ -17,7 +17,7 @@ function handleClick() {
 }
 
     const clickCollection = () => {
-        httpConfig.post("/apis/user-book/" , {userBookBookId: book.bookId, userBookUserId: user.userId})
+        httpConfig.post("/apis/user-book/" , {userBookBookId: book.bookId})
             .then(reply => {
                 if(reply.status === 200) {
                     dispatch(fetchAllBooks())
@@ -26,7 +26,7 @@ function handleClick() {
             });
     }
     const clickFavorite = () => {
-        httpConfig.post("/apis/user-book/favorite/" , {userBookBookId: book.bookId, userBookUserId: user.userId})
+        httpConfig.post("/apis/user-book/favorite/" , {userBookBookId: book.bookId})
             .then(reply => {
                 if(reply.status === 200) {
                     dispatch(fetchAllBooks())
@@ -38,13 +38,14 @@ function handleClick() {
     return(
         <>
         <Row xs={12} md className={"p-3 my-2 border-bottom border-dark"}>
-            <Col md={2} className={"d-flex justify-content-center flex-column"}>
+            <Col md={2} className={"d-flex justify-content-center align-items-center flex-column"}>
                 <Link to={`/details-page/${book.bookId}`} onClick={handleClick}  className={"d-flex justify-content-center my-2 p-1"}>
                     <Image src={book.bookImage}/>
                 </Link>
 
-                <div className={"d-flex justify-content-center flex-column"}>
-                    <Button onClick={clickCollection}>Add To Collection</Button>
+                <div className={"d-flex justify-content-center flex-column w-auto"}>
+                    <Button className={"justify-content-center"} onClick={clickCollection}>Add To Collection</Button>
+                    <Button className={"mt-2 align-items-center"} onClick={clickFavorite}>Add To Favorite</Button>
                 </div>
 
             </Col>

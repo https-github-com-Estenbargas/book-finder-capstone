@@ -9,7 +9,8 @@ import Placeholder from "../shared/imgs/placeholder-profileimg.png";
 import {HomeContentHolder} from "./HomeContentHolder";
 import {fetchUserByUserId} from "../../store/user";
 import {fetchAuth} from "../../store/auth";
-
+import {fetchUserBookByUserId} from "../../store/userBook";
+import {Link} from "react-router-dom";
 
 
 export const Home = () => {
@@ -19,18 +20,32 @@ export const Home = () => {
     const user = useSelector(state => {return state.auth ? state.auth : null})
 
 
-    const initialEffect = () => {
-        dispatch(fetchAllBooks())
-        dispatch(fetchUserByUserId())
+    const initialEffect = async () => {
+       await dispatch(fetchAllBooks())
+       await dispatch(fetchUserByUserId())
     }
     React.useEffect(initialEffect, [dispatch])
-
     return (
         <>
+
             <MainNav />
             <Container fluid>
+                {
+                    (user === null )
+                        ? (
+                            <>
+                                <div className={"d-flex justify-content-center"}>
+                                    <Link className={"text-dark mx-3"} to={"/sign-up"}><h2>Sign Up</h2></Link>
+                                    <Link className={"text-dark mx-3"} to={"/login"}><h2>Sign In</h2></Link>
+                                </div>
+                            </>
+                        )
+                        : null
+
+                }
                 <Row>
                     <HomeOffCanvasSideBar />
+
                     <Col>
                             {books.map(book => <HomeContentHolder key={book.bookId} book={book} user={user}/>)}
                     </Col>
