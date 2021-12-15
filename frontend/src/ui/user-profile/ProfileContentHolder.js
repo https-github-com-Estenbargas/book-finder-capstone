@@ -21,15 +21,15 @@ export function ProfileContentHolder (props) {
     const userBook = book.userBookBookId
     return(
         <>
-            <Row xs={12} md className={"p-3 my-2 border-bottom border-dark"}>
+            <Row xs={12} md className={"p-3 my-2 border-bottom border-dark text-light"}>
                 <Col xs={2} className={"d-flex justify-content-center flex-column"}>
-                    <Button onClick={handleClick}  className={"d-flex justify-content-center my-2 p-1"}>
+                    <a onClick={handleClick}  className={"d-flex justify-content-center my-2 p-1"}>
                         <Image src={book.bookImage}/>
-                    </Button>
+                    </a>
 
                     <div className={"d-flex justify-content-center flex-column"}>
-                        <Button>Add To Favorites</Button>
-                        <Button>Add To Collection</Button>
+                        <Button variant={"outline-light"}>Add To Favorites</Button>
+                        <Button variant={"outline-light"}>Add To Collection</Button>
                     </div>
 
                 </Col>

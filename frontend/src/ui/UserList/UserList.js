@@ -27,7 +27,7 @@ export const UserList = () => {
             <Container fluid>
                 <Row>
                     <BackToHomeOffCanvasSideBar/>
-                    <Col className={'bg-secondary'} id={'content-wrapper'}>
+                    <Col className={'bg-secondary border-top border-dark'} id={'content-wrapper'}>
                         {users.map(user => <UserContentHolder key = {user.userId} user = {user}/>)}
                     </Col>
                 </Row>

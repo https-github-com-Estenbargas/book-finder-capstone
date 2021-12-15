@@ -32,7 +32,7 @@ export const Home = () => {
             <MainNav />
             <Container>
                 <h1 className={"text-light d-flex justify-content-center"}>Welcome To Book Shelph!</h1>
-                <h4 className={"d-flex justify-content-center text-light"}>Please Browse Our Selection!</h4>
+                <h4 className={"d-flex justify-content-center text-light mb-4"}>Please Browse Our Selection!</h4>
                 {
                     (user === null )
                         ? (

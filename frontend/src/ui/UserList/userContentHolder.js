@@ -21,15 +21,14 @@ export function UserContentHolder(props) {
 
     return(
         <>
-            <Row xs={12} md className={"p-3 my-2 border-bottom border-dark"}>
-                <Col xs={2} className={"d-flex justify-content-center flex-column"}>
-                    <Button onClick={handleClick}  className={"d-flex justify-content-center my-2 p-1"}>
-                        <Image src={user.userImage}/>
-                    </Button>
-
+            <Row xs={12} md className={"p-1 my-2 border-bottom border-dark"}>
+                <Col xs={2} className={"d-flex justify-content-center flex-column mx-3"}>
+                    <a onClick={handleClick}  className={"d-flex justify-content-center my-2"}>
+                        <Image width={"100px"} height={"100px"} className={"rounded-circle p-2"} src={user.userImage}/>
+                    </a>
                 </Col>
-                <Col className={"d-flex flex-column"}>
-                    <p>Username: ${user.userName}</p>
+                <Col className={"d-flex flex-column justify-content-center"}>
+                    <h2>Username: {user.userName}</h2>
                 </Col>
             </Row>
 

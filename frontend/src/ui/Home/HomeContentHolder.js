@@ -45,7 +45,7 @@ function handleClick() {
 
                 <div className={"d-flex justify-content-center flex-column w-auto"}>
                     <Button className={"justify-content-center"} variant={"outline-light"} onClick={clickCollection}>Add To Collection</Button>
-                    <Button className={"mt-2 align-items-center"} variant={"outline-light"} onClick={clickFavorite}>Add To Favorite</Button>
+                    <Button className={"my-2 align-items-center"} variant={"outline-light"} onClick={clickFavorite}>Add To Favorite</Button>
                 </div>
 
             </Col>

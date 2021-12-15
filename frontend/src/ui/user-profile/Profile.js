@@ -29,13 +29,13 @@ export const ProfilePage = ({match}) => {
             {auth !== null ? (
                 <>
                     <Container>
-                        <Row className={"d-flex align-items-center"}>
-                            <Col><Image src = {user.userImage}/></Col>
-                            <Col className={"text-start"}><h2>Username: {user.userName}</h2></Col>
+                        <Row className={"d-flex align-items-center text-light"}>
+                            <Col><Image className={"rounded-circle"} src = {user.userImage}/></Col>
+                            <Col className={"text-start text-light"}><h2>Username: {user.userName}</h2></Col>
                         </Row>
                         <Row>
                             <Col className={'bg-secondary'} id={'content-wrapper'}>
-                                <h3 className={"text-center"}>{user.userName}'s Books</h3>
+                                <h3 className={"text-center text-light"}>{user.userName}'s Books</h3>
                                 <Row>
                                     {book.map(book => <ProfileContentHolder key={userBooks.userBookBookId} book = {book}/>)}
                                 </Row>

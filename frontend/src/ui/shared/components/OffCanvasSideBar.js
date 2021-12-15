@@ -57,9 +57,9 @@ export function HomeOffCanvasSideBar({name, ...props}) {
                             </a>
                         </Nav.Item>
                         <Nav.Item className={"pt-2"}>
-                            <a onClick={handleUserListClick}>
+                            <Link to={"/user-list"}>
                                 <p className={"text-white text-center h1"}>Find My Friend</p>
-                            </a>
+                            </Link>
                         </Nav.Item>
                     </Nav>
                 </Offcanvas.Body>
