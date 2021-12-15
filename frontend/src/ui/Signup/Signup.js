@@ -7,13 +7,13 @@ export const Signup = () => {
     return (
         <>
             <MainNav />
-            <Container fluid className={"d-flex justify-content-center align-items-center min-vh-100 w-auto"}>
-            <Container className={"p-5 bg-dark"}>
+            <Container fluid className={"d-flex justify-content-center align-items-center w-75"}>
+            <Container className={"p-sm-4 py-2 bg-dark"}>
                         <h1 className={"text-light"}>Sign Up</h1>
                 <PostForm />
 
             </Container>
-            ></Container>
+            </Container>
 
 
         </>

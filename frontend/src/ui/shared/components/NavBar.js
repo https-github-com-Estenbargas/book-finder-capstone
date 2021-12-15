@@ -15,7 +15,7 @@ export function MainNav(props) {
     return (
         <>
             <header>
-                <Navbar className="bg-secondary d-flex justify-content-end border-bottom border-dark">
+                <Navbar className="bg-secondary d-flex justify-content-end">
                     <Navbar.Brand className={"pe-2"}>
                         {auth !== null ? (
                             <>

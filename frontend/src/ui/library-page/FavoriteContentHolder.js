@@ -26,7 +26,7 @@ export const FavoriteContentHolder  =  ({book,user,userBook}, props) => {
                                     <Image className={"library-img"} src={book.bookImage} />
                                 </a>
 
-                                <p className={"text-center my-3"}>{book.bookTitle}</p>
+                                <p className={"text-center my-3 text-light h5"}>{book.bookTitle}</p>
                             </Col>
                         </>
                     )

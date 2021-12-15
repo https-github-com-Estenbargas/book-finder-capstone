@@ -37,7 +37,7 @@ export function HomeOffCanvasSideBar({name, ...props}) {
     return (
 
         <>
-            <Container id={"toggler-container"}>
+            <Container className={"w-auto"} id={"toggler-container"}>
                 <Button id={"sidebar-toggler"} variant={"light"} onClick={handleShow} className={"text-black d-flex flex-column"}>Menu</Button>
             </Container>
 
@@ -80,7 +80,7 @@ export function LibraryOffCanvasSideBar({name, ...props}) {
     return (
 
         <>
-            <Container id={"toggler-container"}>
+            <Container className={"w-auto"} id={"toggler-container"}>
                 <Button id={"sidebar-toggler"} variant={"light"} onClick={handleShow} className={"text-black d-flex flex-column"}>SideBar</Button>
             </Container>
 
@@ -109,7 +109,7 @@ export function BackToHomeOffCanvasSideBar({name, ...props}) {
     return (
 
         <>
-            <Container id={"toggler-container"}>
+            <Container className={"w-auto"} id={"toggler-container"}>
                 <Button id={"sidebar-toggler"} variant={"light"} onClick={handleShow} className={"text-black d-flex flex-column"}>SideBar</Button>
             </Container>
 

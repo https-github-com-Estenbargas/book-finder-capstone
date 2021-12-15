@@ -10,7 +10,7 @@ import {CollectionContentHolder} from "./CollectionContentHolder";
 import {DetailsContentHolder} from "../Details/DetailsContentHolder";
 import {fetchAllBooks, fetchBooksByUserBookBookId, getAllBooks} from "../../store/book";
 import {FavoriteContentHolder} from "./FavoriteContentHolder";
-
+import "./library.css"
 
 export const Library = () => {
 
@@ -30,18 +30,22 @@ export const Library = () => {
         <>
             <MainNav />
             <LibraryOffCanvasSideBar />
-            <Container fluid>
+            <Container className={"p-3"}>
 
 
-                <Row className={"bg-dark"} id={"collection-section"}>
+                <Row className={"bg-dark p-4"} id={"collection-section"}>
                     <h1 className={"text-light p-2 my-3"}>Collection</h1>
-                    {book.map(Book => <CollectionContentHolder key={userBook.userBookUserId} book={Book} user={user} userBook={userBook}/>)}
+                            {book.map(Book => <CollectionContentHolder key={userBook.userBookUserId} book={Book} user={user} userBook={userBook}/>)}
                 </Row>
-                <Row id={"favorites-section"} className={"bg-light"} >
-                    <h1 className={"p-2 my-3"}>Favorite</h1>
+            </Container>
+            <Container className={"p-3"}>
+                <Row id={"favorites-section"} className={"bg-light p-2"} >
+                    <h1 className={"p-4 my-3"}>Favorites</h1>
                     {book.map(Book => <FavoriteContentHolder key={userBook.userBookUserId} book={Book} user={user} userBook={userBook}/>)}
                 </Row>
             </Container>
+
+
         </>
     )
 }
